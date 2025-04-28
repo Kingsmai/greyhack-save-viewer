@@ -14,6 +14,8 @@ config/name="GreyHack Save Analyzer"
 run/main_scene="uid://cp1ioem18ac4l"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+config/isDebug=false
+config/debugSaveFileLocation="C:\\Softwares\\Grey Hack\\Grey Hack_Data\\GreyHackDB.db"
 
 [autoload]
 

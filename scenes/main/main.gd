@@ -16,6 +16,9 @@ func _ready() -> void:
 	refresh_button.pressed.connect(func(): load_data())
 	if ProjectSettings.get_setting("application/config/isDebug"):
 		# Make sure to put your GreyHackDB.db inside the /data folder to load the data.
+		var debug_save_path = ProjectSettings.get_setting("application/config/debugSaveFileLocation")
+		if debug_save_path != "":
+			SaveData.db_path = debug_save_path
 		load_data()
 
 func _on_file_dropped(files: PackedStringArray) -> void:

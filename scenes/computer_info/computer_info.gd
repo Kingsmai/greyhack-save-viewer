@@ -17,6 +17,8 @@ class_name ComputerInfo extends MarginContainer
 @onready var config_os: ConfigOs = %ConfigOS
 @onready var computer_users: ComputerUsers = %ComputerUsers
 
+var ip_component: Dictionary[String, TreeItem] = {}
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	computer_selector_list.hide_root = true
@@ -24,13 +26,12 @@ func _ready() -> void:
 
 func load_computer_info() -> void:
 	# Reset all data
+	ip_component.clear()
 	file_system.reset()
 	config_os.reset()
 	_reset_computer_details()
 	computer_selector_list.clear()
 	var root = computer_selector_list.create_item()
-	var last_parent_ip = ""
-	var last_parent: TreeItem = null
 	
 	var recorded_ip_with_types = MapRepository.get_map_ip_with_type()
 
@@ -40,8 +41,8 @@ func load_computer_info() -> void:
 			var ip = ip_parts[0]
 			var unique_id = ip_parts[1]
 			# 如果和上一个 parent 相同 IP，直接创建子项
-			if ip == last_parent_ip and last_parent != null:
-				var entry = last_parent.create_child()
+			if ip in ip_component:
+				var entry = ip_component[ip].create_child()
 				entry.set_text(0, unique_id)
 				if computer["IsRouter"] == 1:
 					entry.set_icon(0, preload("res://assets/router.svg"))
@@ -49,19 +50,18 @@ func load_computer_info() -> void:
 				entry.set_metadata(0, computer)
 			else:
 				# 创建新的 IP 分组
-				last_parent = root.create_child()
-				last_parent_ip = ip
-				last_parent.set_selectable(0, false)
-				last_parent.collapsed = true
-				last_parent.set_text(0, ip)
+				ip_component[ip] = root.create_child()
+				ip_component[ip].set_selectable(0, false)
+				ip_component[ip].collapsed = true
+				ip_component[ip].set_text(0, ip)
 				if ip in recorded_ip_with_types:
 					var type = recorded_ip_with_types[ip]
 					var type_texture = WebTypeTranslator.type_to_texture(type)
 					var type_str = WebTypeTranslator.type_translator(type)
-					last_parent.set_icon(0, type_texture)
-					last_parent.set_icon_max_width(0, 16)
-					last_parent.set_tooltip_text(0, type_str)
-				var entry = last_parent.create_child()
+					ip_component[ip].set_icon(0, type_texture)
+					ip_component[ip].set_icon_max_width(0, 16)
+					ip_component[ip].set_tooltip_text(0, type_str)
+				var entry = ip_component[ip].create_child()
 				entry.set_text(0, unique_id)
 				if computer["IsRouter"] == 1:
 					entry.set_icon(0, preload("res://assets/router.svg"))
