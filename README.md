@@ -19,7 +19,7 @@
 
 ## 🛠️ Installation
 
-1. Download the latest release from [Releases](./releases) 📥  
+1. Download the latest release from [Releases](https://github.com/Kingsmai/greyhack-save-viewer/releases) 📥  
 2. Extract and run the executable for your platform.
 3. Drag your Grey Hack save file into the window and start browsing! 🧠
 
