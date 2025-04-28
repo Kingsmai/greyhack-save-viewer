@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvala8s2w386l"]
+
+[ext_resource type="Script" uid="uid://bl3xvfjoqanqd" path="res://scenes/decipher_view/decipher_view.gd" id="1_64580"]
+
+[node name="DecipherView" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_64580")
+metadata/_tab_index = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="ReloadButton" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Reload Password Database"
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Encrypted Text"
+
+[node name="EncryptedTextCodeEdit" type="CodeEdit" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+placeholder_text = "Possible input:
+username:base64password
+email:base64password
+bank_acc:base64password
+base64password"
+
+[node name="DecryptButton" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Decrypt"
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Plain Text"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PlainTextContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3

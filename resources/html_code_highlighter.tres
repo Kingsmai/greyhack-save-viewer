@@ -1,0 +1,23 @@
+[gd_resource type="CodeHighlighter" format=3 uid="uid://bhocitbp2vsf1"]
+
+[resource]
+number_color = Color(1, 0.666667, 0, 1)
+symbol_color = Color(1, 0.333333, 1, 1)
+function_color = Color(0, 1, 1, 1)
+member_variable_color = Color(0.333333, 1, 0.333333, 1)
+keyword_colors = {
+"body": Color(1, 0.333333, 0.333333, 1),
+"div": Color(1, 0.333333, 0.333333, 1),
+"head": Color(1, 0.333333, 0.333333, 1),
+"html": Color(1, 0.333333, 0.333333, 1),
+"script": Color(1, 0.333333, 0.333333, 1),
+"span": Color(1, 0.333333, 0.333333, 1),
+"style": Color(1, 0.333333, 0.333333, 1)
+}
+member_keyword_colors = {
+"alt": Color(1, 0.8, 0, 1),
+"class": Color(1, 0.8, 0, 1),
+"href": Color(1, 0.8, 0, 1),
+"id": Color(1, 0.8, 0, 1),
+"src": Color(1, 0.8, 0, 1)
+}

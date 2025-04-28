@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://bht5hvgy44bit"]
+
+[ext_resource type="Script" uid="uid://c5juml7idpmcm" path="res://scenes/computer_info/config_os/config_os.gd" id="1_yxvme"]
+
+[node name="ConfigOS" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yxvme")
+metadata/_tab_index = 1
+
+[node name="DebugCodeEdit" type="CodeEdit" parent="."]
+layout_mode = 2
+minimap_draw = true
+gutters_draw_line_numbers = true

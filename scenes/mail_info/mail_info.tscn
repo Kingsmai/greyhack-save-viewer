@@ -1,0 +1,141 @@
+[gd_scene load_steps=2 format=3 uid="uid://bd2q4wl1dxedm"]
+
+[ext_resource type="Script" uid="uid://cdj6g2fp3nihk" path="res://scenes/mail_info/mail_info.gd" id="1_xn24n"]
+
+[node name="MailInfo" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xn24n")
+metadata/_tab_index = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+
+[node name="EmailAddressSelectorList" type="Tree" parent="HBoxContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="AddressLabel" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Address:"
+
+[node name="AddressLineEdit" type="LineEdit" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PasswordLabel" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Password:"
+
+[node name="PasswordLineEdit" type="LineEdit" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="EncPasswordLabel" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Enc Password:"
+
+[node name="EncPasswordLineEdit" type="LineEdit" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SpamFilterLabel" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Spam Filter:"
+
+[node name="SpamFilterLineEdit" type="LineEdit" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="EmailsContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/EmailsContainer"]
+layout_mode = 2
+text = "Emails"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/EmailsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="EmailSelectorList" type="Tree" parent="HBoxContainer/VBoxContainer/EmailsContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="EmailDetailContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/EmailsContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/EmailsContainer/HBoxContainer/EmailDetailContainer"]
+layout_mode = 2
+
+[node name="OtherEmailLabel" type="Label" parent="HBoxContainer/VBoxContainer/EmailsContainer/HBoxContainer/EmailDetailContainer/HBoxContainer"]
+layout_mode = 2
+text = "Message With:"
+
+[node name="OtherEmailLineEdit" type="LineEdit" parent="HBoxContainer/VBoxContainer/EmailsContainer/HBoxContainer/EmailDetailContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="IsProtectedCheckBox" type="CheckBox" parent="HBoxContainer/VBoxContainer/EmailsContainer/HBoxContainer/EmailDetailContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Is Protected?"
+
+[node name="MessagesCodeEdit" type="CodeEdit" parent="HBoxContainer/VBoxContainer/EmailsContainer/HBoxContainer/EmailDetailContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+text = "Message Detail not implemented yet."
+wrap_mode = 1
+minimap_draw = true
+line_folding = true
+gutters_draw_line_numbers = true
+
+[node name="MissionIdContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/EmailsContainer/HBoxContainer/EmailDetailContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/EmailsContainer/HBoxContainer/EmailDetailContainer/MissionIdContainer"]
+custom_minimum_size = Vector2(112, 0)
+layout_mode = 2
+text = "Mission Id:"
+
+[node name="MissionIdLineEdit" type="LineEdit" parent="HBoxContainer/VBoxContainer/EmailsContainer/HBoxContainer/EmailDetailContainer/MissionIdContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="EmailIdContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/EmailsContainer/HBoxContainer/EmailDetailContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/EmailsContainer/HBoxContainer/EmailDetailContainer/EmailIdContainer"]
+custom_minimum_size = Vector2(112, 0)
+layout_mode = 2
+text = "Email Id:"
+
+[node name="EmailIdLineEdit" type="LineEdit" parent="HBoxContainer/VBoxContainer/EmailsContainer/HBoxContainer/EmailDetailContainer/EmailIdContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
