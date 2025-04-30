@@ -49,3 +49,45 @@
 
 ## Computer Information
 
+- [ ] Computer List (Group by IP, Use the old implementation)
+  - [ ] List Icon
+- [ ] Computer Details
+  - [ ] Is Router
+  - [ ] Is Player
+  - [ ] Is Rented
+  - [ ] Is CTF
+- [ ] File System (Use the old implementation)
+- [ ] File Details (Use the old implementation)
+- [ ] File Viewer
+- [ ] Open With Option
+  - [ ] Parse data from JSON to visualized view
+  - [ ] Parse data from XML to visualized view
+  - [ ] Prettify source codes
+  - [ ] Highlight gdscript, html, json, xml
+  - [ ] Decrypt password files
+- [ ] Smart Open File (file type detection)
+- [ ] Installed hardware
+  - [ ] Hard Disk
+  - [ ] CPUs (list)
+  - [ ] RAMs (list)
+  - [ ] GPU
+  - [ ] Power Supply
+  - [ ] Motherboard
+  - [ ] Network Devices (list)
+- [ ] Registered User List (Use the old implementation)
+  - [ ] Username
+  - [ ] Group (List)
+  - [ ] Encrypted Password
+  - [ ] Plain Password
+  - [ ] Is Deletable
+  - [ ] Total Experience
+  - [ ] Karma
+    - [ ] Current Karma
+    - [ ] Previous Karma
+    - [ ] Pending Mission
+- [ ] Process List
+- [ ] **Huge problem**
+  - [ ] Config OS
+    - [ ] Analysis for computer ConfigOS
+    - [ ] Analysis for router Config OS
+    - [ ] Is there any other Config OS?
