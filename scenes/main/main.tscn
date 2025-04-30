@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cp1ioem18ac4l"]
+[gd_scene load_steps=3 format=3 uid="uid://cp1ioem18ac4l"]
 
 [ext_resource type="Script" uid="uid://bbnhgcd0ot2yv" path="res://scenes/main/main.gd" id="1_hyk8p"]
+[ext_resource type="PackedScene" uid="uid://gi5wo0lwi8yo" path="res://views/player_view.tscn" id="2_iuonh"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -42,3 +43,7 @@ text = "Refresh (F5)"
 [node name="TabContainer" type="TabContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+current_tab = 0
+
+[node name="Player" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer" instance=ExtResource("2_iuonh")]
+layout_mode = 2

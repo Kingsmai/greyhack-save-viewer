@@ -1,0 +1,343 @@
+[gd_scene load_steps=2 format=3 uid="uid://gi5wo0lwi8yo"]
+
+[ext_resource type="Script" uid="uid://cyp4brqqo2xi7" path="res://views/player_view.gd" id="1_h60pf"]
+
+[node name="PlayerView" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h60pf")
+metadata/_tab_index = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PlayerDetailContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/PlayerDetailContainer"]
+layout_mode = 2
+text = "Player Details"
+horizontal_alignment = 1
+
+[node name="PlayerIdContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/PlayerDetailContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/PlayerDetailContainer/PlayerIdContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Player ID:"
+horizontal_alignment = 2
+
+[node name="PlayerIdLineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer/PlayerDetailContainer/PlayerIdContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+editable = false
+
+[node name="NicknameContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/PlayerDetailContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/PlayerDetailContainer/NicknameContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Nickname:"
+horizontal_alignment = 2
+
+[node name="NicknameLineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer/PlayerDetailContainer/NicknameContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+editable = false
+
+[node name="PlayerLocationXContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/PlayerDetailContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/PlayerDetailContainer/PlayerLocationXContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Position X:"
+horizontal_alignment = 2
+
+[node name="PlayerLocationXLineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer/PlayerDetailContainer/PlayerLocationXContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+editable = false
+
+[node name="PlayerLocationYContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/PlayerDetailContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/PlayerDetailContainer/PlayerLocationYContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Position Y:"
+horizontal_alignment = 2
+
+[node name="PlayerLocationYLineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer/PlayerDetailContainer/PlayerLocationYContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+editable = false
+
+[node name="GameOverCountContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/PlayerDetailContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/PlayerDetailContainer/GameOverCountContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Game Over Times:"
+horizontal_alignment = 2
+
+[node name="GameOverCountLineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer/PlayerDetailContainer/GameOverCountContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+editable = false
+
+[node name="LastSeenContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/PlayerDetailContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/PlayerDetailContainer/LastSeenContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Last Seen:"
+horizontal_alignment = 2
+
+[node name="LastSeenLineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer/PlayerDetailContainer/LastSeenContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+editable = false
+
+[node name="BankAccountContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/PlayerDetailContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/PlayerDetailContainer/BankAccountContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Bank Account:"
+horizontal_alignment = 2
+
+[node name="BankAccountLineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer/PlayerDetailContainer/BankAccountContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+editable = false
+
+[node name="EmailAddressContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/PlayerDetailContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/PlayerDetailContainer/EmailAddressContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Email Address:"
+horizontal_alignment = 2
+
+[node name="EmailAddressLineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer/PlayerDetailContainer/EmailAddressContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+editable = false
+
+[node name="WalletIdContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/PlayerDetailContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/PlayerDetailContainer/WalletIdContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Wallet Id:"
+horizontal_alignment = 2
+
+[node name="WalletIdLineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer/PlayerDetailContainer/WalletIdContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+editable = false
+
+[node name="WalletPasswordContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/PlayerDetailContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/PlayerDetailContainer/WalletPasswordContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Wallet Password:"
+horizontal_alignment = 2
+
+[node name="WalletPasswordLineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer/PlayerDetailContainer/WalletPasswordContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+editable = false
+
+[node name="LoginDataContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/PlayerDetailContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/PlayerDetailContainer/LoginDataContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 0
+text = "Login Data:"
+horizontal_alignment = 2
+
+[node name="LoginDataCodeEdit" type="CodeEdit" parent="VBoxContainer/HBoxContainer/PlayerDetailContainer/LoginDataContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+current_tab = 0
+
+[node name="Devices" type="MarginContainer" parent="VBoxContainer/HBoxContainer/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/TabContainer/Devices"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/TabContainer/Devices/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/TabContainer/Devices/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Owned Devices"
+
+[node name="OwnedDevicesTree" type="Tree" parent="VBoxContainer/HBoxContainer/TabContainer/Devices/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="StorageContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/TabContainer/Devices/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StorageTypeContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/TabContainer/Devices/HBoxContainer/StorageContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Motherboard" type="Button" parent="VBoxContainer/HBoxContainer/TabContainer/Devices/HBoxContainer/StorageContainer/StorageTypeContainer"]
+layout_mode = 2
+toggle_mode = true
+text = "Motherboard"
+
+[node name="CPU" type="Button" parent="VBoxContainer/HBoxContainer/TabContainer/Devices/HBoxContainer/StorageContainer/StorageTypeContainer"]
+layout_mode = 2
+toggle_mode = true
+text = "CPU"
+
+[node name="RAM" type="Button" parent="VBoxContainer/HBoxContainer/TabContainer/Devices/HBoxContainer/StorageContainer/StorageTypeContainer"]
+layout_mode = 2
+toggle_mode = true
+text = "RAM"
+
+[node name="GPU" type="Button" parent="VBoxContainer/HBoxContainer/TabContainer/Devices/HBoxContainer/StorageContainer/StorageTypeContainer"]
+layout_mode = 2
+toggle_mode = true
+text = "GPU"
+
+[node name="HardDisk" type="Button" parent="VBoxContainer/HBoxContainer/TabContainer/Devices/HBoxContainer/StorageContainer/StorageTypeContainer"]
+layout_mode = 2
+toggle_mode = true
+text = "Hard Disk"
+
+[node name="NetDevice" type="Button" parent="VBoxContainer/HBoxContainer/TabContainer/Devices/HBoxContainer/StorageContainer/StorageTypeContainer"]
+layout_mode = 2
+toggle_mode = true
+text = "Net Device"
+
+[node name="PSU" type="Button" parent="VBoxContainer/HBoxContainer/TabContainer/Devices/HBoxContainer/StorageContainer/StorageTypeContainer"]
+layout_mode = 2
+toggle_mode = true
+text = "PSU"
+
+[node name="CurrentSelectedTypeLabel" type="Label" parent="VBoxContainer/HBoxContainer/TabContainer/Devices/HBoxContainer/StorageContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="StorageInventoryContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/TabContainer/Devices/HBoxContainer/StorageContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="StorageItemTree" type="Tree" parent="VBoxContainer/HBoxContainer/TabContainer/Devices/HBoxContainer/StorageContainer/StorageInventoryContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/HBoxContainer/TabContainer/Devices/HBoxContainer/StorageContainer/StorageInventoryContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StorageItemDetailContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/TabContainer/Devices/HBoxContainer/StorageContainer/StorageInventoryContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Shop" type="MarginContainer" parent="VBoxContainer/HBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/TabContainer/Shop"]
+layout_mode = 2
+
+[node name="CustomShopSeedContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/TabContainer/Shop/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/TabContainer/Shop/VBoxContainer/CustomShopSeedContainer"]
+layout_mode = 2
+text = "Custom Shop Seed:"
+
+[node name="CustomShopSeedLineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer/TabContainer/Shop/VBoxContainer/CustomShopSeedContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+editable = false
+
+[node name="ShopContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/TabContainer/Shop/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SellingItemTree" type="Tree" parent="VBoxContainer/HBoxContainer/TabContainer/Shop/VBoxContainer/ShopContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/HBoxContainer/TabContainer/Shop/VBoxContainer/ShopContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SellingItemDetailContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/TabContainer/Shop/VBoxContainer/ShopContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Mission" type="MarginContainer" parent="VBoxContainer/HBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Disclaimer" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Only show the only one player in current version since this is a single player save data viewer."
