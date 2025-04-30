@@ -21,19 +21,11 @@ config/debugSaveFileLocation="C:\\Softwares\\Grey Hack\\Grey Hack_Data\\GreyHack
 
 SaveDataV1="*res://globals/save_data/save_data.gd"
 SaveData="*res://globals/save_data_v2/save_data_v2.gd"
-PlayersRepository="*res://repositories/players_repository.gd"
-ComputerRepository="*res://repositories/computer_repository.gd"
-FilesRepository="*res://repositories/files_repository.gd"
-WebPagesRepository="*res://repositories/web_pages_repository.gd"
-BankAccountsRepository="*res://repositories/bank_accounts_repository.gd"
-EmailAccountsRepository="*res://repositories/email_accounts_repository.gd"
-MapRepository="*res://repositories/map_repository.gd"
-PasswordsRepository="*res://repositories/passwords_repository.gd"
 
 [display]
 
-window/size/viewport_width=1200
-window/size/viewport_height=768
+window/size/viewport_width=1280
+window/size/viewport_height=720
 
 [dotnet]
 

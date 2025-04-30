@@ -1,14 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://cp1ioem18ac4l"]
+[gd_scene load_steps=2 format=3 uid="uid://cp1ioem18ac4l"]
 
 [ext_resource type="Script" uid="uid://bbnhgcd0ot2yv" path="res://scenes/main/main.gd" id="1_hyk8p"]
-[ext_resource type="PackedScene" uid="uid://cqn4xqb6sro32" path="res://scenes/player_info/player_info.tscn" id="2_iuonh"]
-[ext_resource type="PackedScene" uid="uid://c6y2o53r1pqof" path="res://scenes/computer_info/computer_info.tscn" id="3_k2fmo"]
-[ext_resource type="PackedScene" uid="uid://dbbnuqiytwitg" path="res://scenes/website_info/website_info.tscn" id="4_l3cfh"]
-[ext_resource type="PackedScene" uid="uid://dedrfdvuu70hq" path="res://scenes/bank_info/bank_info.tscn" id="5_6q06x"]
-[ext_resource type="PackedScene" uid="uid://bd2q4wl1dxedm" path="res://scenes/mail_info/mail_info.tscn" id="6_ow5a4"]
-[ext_resource type="PackedScene" uid="uid://hxxtqhybqcua" path="res://scenes/map_info/map_info.tscn" id="7_hujxm"]
-[ext_resource type="PackedScene" uid="uid://bvala8s2w386l" path="res://scenes/decipher_view/decipher_view.tscn" id="8_yyfjg"]
-[ext_resource type="PackedScene" uid="uid://dkguk65m0r657" path="res://scenes/brutal_bank_info/brutal_bank_info.tscn" id="9_b1x3f"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -27,59 +19,26 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
 layout_mode = 2
 
-[node name="TabContainer" type="TabContainer" parent="PanelContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Grey Hack Single Player Save Data Viewer"
+horizontal_alignment = 1
+
+[node name="RefreshButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Refresh (F5)"
+
+[node name="TabContainer" type="TabContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-current_tab = 0
-
-[node name="Player" parent="PanelContainer/VBoxContainer/TabContainer" instance=ExtResource("2_iuonh")]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="Computer" parent="PanelContainer/VBoxContainer/TabContainer" instance=ExtResource("3_k2fmo")]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-
-[node name="Website" parent="PanelContainer/VBoxContainer/TabContainer" instance=ExtResource("4_l3cfh")]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-
-[node name="Bank" parent="PanelContainer/VBoxContainer/TabContainer" instance=ExtResource("5_6q06x")]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-
-[node name="Mail" parent="PanelContainer/VBoxContainer/TabContainer" instance=ExtResource("6_ow5a4")]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-
-[node name="Map" parent="PanelContainer/VBoxContainer/TabContainer" instance=ExtResource("7_hujxm")]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-
-[node name="Decipher" parent="PanelContainer/VBoxContainer/TabContainer" instance=ExtResource("8_yyfjg")]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-
-[node name="BrutalBankInfo" parent="PanelContainer/VBoxContainer/TabContainer" instance=ExtResource("9_b1x3f")]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-
-[node name="BrutalMailInfo" type="MarginContainer" parent="PanelContainer/VBoxContainer/TabContainer"]
-visible = false
-layout_mode = 2
-metadata/_tab_index = 8
-
-[node name="RefreshButton" type="Button" parent="PanelContainer/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Refresh"
