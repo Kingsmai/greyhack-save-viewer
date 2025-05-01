@@ -1,0 +1,61 @@
+[gd_scene load_steps=2 format=3 uid="uid://ma4h301upe28"]
+
+[ext_resource type="Script" uid="uid://wva6ch234uha" path="res://scenes/decipher_window/decipher_window.gd" id="1_vs38g"]
+
+[node name="DecipherWindow" type="Window"]
+auto_translate_mode = 1
+title = "Password Decipher"
+initial_position = 2
+size = Vector2i(800, 500)
+script = ExtResource("1_vs38g")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="ReloadButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Reload Password Database"
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Decrypted"
+
+[node name="EncryptedTextCodeEdit" type="CodeEdit" parent="PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+placeholder_text = "Possible input:
+username:base64password
+email:base64password
+bank_acc:base64password
+base64password"
+
+[node name="DecryptButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Decrypt"
+
+[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Plain Text"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PlainTextContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3

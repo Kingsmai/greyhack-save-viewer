@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cp1ioem18ac4l"]
+[gd_scene load_steps=6 format=3 uid="uid://cp1ioem18ac4l"]
 
 [ext_resource type="Script" uid="uid://bbnhgcd0ot2yv" path="res://scenes/main/main.gd" id="1_hyk8p"]
 [ext_resource type="PackedScene" uid="uid://gi5wo0lwi8yo" path="res://views/player_view.tscn" id="2_iuonh"]
 [ext_resource type="PackedScene" uid="uid://cwk6q0gkdhat8" path="res://views/computers_view.tscn" id="3_k2fmo"]
 [ext_resource type="PackedScene" uid="uid://cj85ijijwv8lo" path="res://views/map_view.tscn" id="4_l3cfh"]
+[ext_resource type="PackedScene" uid="uid://ma4h301upe28" path="res://scenes/decipher_window/decipher_window.tscn" id="5_6q06x"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -37,6 +38,11 @@ size_flags_horizontal = 3
 text = "Grey Hack Single Player Save Data Viewer"
 horizontal_alignment = 1
 
+[node name="PasswordDecrypterButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Password Decrypter"
+
 [node name="RefreshButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
@@ -57,3 +63,12 @@ layout_mode = 2
 [node name="Map" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer" instance=ExtResource("4_l3cfh")]
 visible = false
 layout_mode = 2
+
+[node name="Website" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+
+[node name="DecipherWindow" parent="." instance=ExtResource("5_6q06x")]
+unique_name_in_owner = true
+visible = false

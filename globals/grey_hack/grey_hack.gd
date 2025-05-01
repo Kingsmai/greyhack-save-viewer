@@ -9,6 +9,7 @@ signal map_load(map_data: Array[MapObject])
 var player: Player
 var computers_metadata: Array[Computer]
 var map_data: Array[MapObject]
+var saved_password: Dictionary[String, String]
 
 func _ready() -> void:
 	if ProjectSettings.get_setting("application/config/isDebug"):
@@ -28,3 +29,6 @@ func load_data() -> void:
 	computers_load.emit(computers_metadata)
 	map_data = MapDB.load_map()
 	map_load.emit(map_data)
+
+func refresh_password():
+	saved_password = PasswordsDB.get_password_dictionary()

@@ -1,5 +1,24 @@
 # Roadmap
 
+## Database implementation
+
+- [ ] Bank Accounts
+- [ ] Coins
+- [x] Computer
+- [ ] CTFs
+- [ ] Files
+- [ ] InfoGen
+- [ ] Logs
+- [ ] MailAccounts
+- [x] Map
+- [ ] Passwords
+- [ ] PlayerConns
+- [x] Players
+- [ ] SharedConns
+- [ ] Stocks
+- [ ] Wallets
+- [ ] WebPages
+
 ## Player Information
 
 > Data from Player Database
@@ -101,3 +120,22 @@
     - [ ] Analysis for computer ConfigOS
     - [ ] Analysis for router Config OS
     - [ ] Is there any other Config OS?
+
+### Computer Improvements
+
+- [ ] Type Icon at Tab
+
+## Map View
+
+- [x] Server basic info
+  - [x] Position
+  - [x] Bssid & Essid
+  - [x] IP (ID)
+  - [x] Web Address
+  - [x] Web Type
+  - [x] Generated child
+  - [x] Mission NPC Names
+
+### Map View Improvements
+
+- [ ] Able to open corresponding computer when double click the generated pc.

@@ -1,10 +1,14 @@
 extends Control
 
+@onready var decipher_window: DecipherWindow = %DecipherWindow
+
 @onready var refresh_button: Button = %RefreshButton
+@onready var password_decrypter_button: Button = %PasswordDecrypterButton
 
 func _ready() -> void:
 	get_window().files_dropped.connect(_on_file_dropped)
 	refresh_button.pressed.connect(func(): GreyHack.load_data())
+	password_decrypter_button.pressed.connect(func(): decipher_window.show())
 
 func _on_file_dropped(files: PackedStringArray) -> void:
 	var file_and_dir_name = files[0]
