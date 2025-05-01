@@ -86,6 +86,7 @@ func _on_player_details_load(player: Player) -> void:
 	for device in player.owned_devices:
 		var device_item = root.create_child()
 		device_item.set_text(0, device)
+		device_item.set_metadata(0, device)
 	custom_shop_seed_line_edit.text = str(player.player_shop["customShopSeed"])
 	selling_item_tree.clear()
 	var selling_item_tree_root = selling_item_tree.create_item()
@@ -114,7 +115,7 @@ func _fetch_and_render_storage_items() -> void:
 		item_entry.set_metadata(0, item)
 
 func _on_owned_devices_tree_item_activated() -> void:
-	var item = owned_devices_tree.get_selected().get_text(0)
+	var item = owned_devices_tree.get_selected().get_metadata(0)
 	# TODO: open device view
 	print_debug("Item double clicked: " + item + ", need to open device view later")
 
