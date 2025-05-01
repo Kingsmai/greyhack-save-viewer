@@ -6,10 +6,13 @@ signal computers_load(computers_data: Array[Computer])
 
 signal map_load(map_data: Array[MapObject])
 
+signal web_pages_load(web_pages: Array[WebPage])
+
 var player: Player
 var computers_metadata: Array[Computer]
 var map_data: Array[MapObject]
 var saved_password: Dictionary[String, String]
+var web_pages: Array[WebPage]
 
 func _ready() -> void:
 	if ProjectSettings.get_setting("application/config/isDebug"):
@@ -29,6 +32,8 @@ func load_data() -> void:
 	computers_load.emit(computers_metadata)
 	map_data = MapDB.load_map()
 	map_load.emit(map_data)
+	web_pages = WebPagesDB.load_web_pages()
+	web_pages_load.emit(web_pages)
 
 func refresh_password():
 	saved_password = PasswordsDB.get_password_dictionary()
