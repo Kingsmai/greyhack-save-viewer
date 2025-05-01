@@ -2,7 +2,10 @@ extends Node
 
 signal player_details_load(player_data: Player)
 
-var player: Player = Player.new()
+signal computers_load(computers_data: Array[Computer])
+
+var player: Player
+var computers_metadata: Array[Computer]
 
 func _ready() -> void:
 	if ProjectSettings.get_setting("application/config/isDebug"):
@@ -16,4 +19,7 @@ func _ready() -> void:
 		load_data()
 
 func load_data() -> void:
-	player.load_player_details()
+	player = PlayerDB.load_player_details()
+	player_details_load.emit(player)
+	computers_metadata = ComputerDB.load_devices()
+	computers_load.emit(computers_metadata)

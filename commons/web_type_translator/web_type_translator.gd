@@ -1,48 +1,71 @@
 class_name WebTypeTranslator extends Node
 
-static func type_translator(type: int) -> String:
+enum Type {
+	Unknown,
+	PoliceStation,
+	Universities,
+	Supermarkets,
+	FastFood,
+	Workshop,
+	MobileShop,
+	Hospitals,
+	Banks,
+	Individuals,
+	MailServices,
+	HackShop,
+	ComputerStore,
+	RentServer,
+	NetServices,
+	HardwareManufacturer,
+	Neurobox,
+	Tutorial,
+	CurrencyCreation,
+	CTF
+}
+
+static func type_translator(type: Type) -> String:
 	match type:
-		0: return "Unknown"
-		1: return "Police Station"
-		2: return "Universities"
-		3: return "Supermarkets"
-		4: return "Fast Food"
-		5: return "Workshop"
-		6: return "Mobile Shop"
-		7: return "Hospitals"
-		8: return "Banks"
-		9: return "Individuals"
-		10: return "Mail Services"
-		11: return "Hack Shop"
-		12: return "Computer Store"
-		13: return "Rent Server"
-		14: return "Net Services"
-		15: return "Hardware Manufacturer"
-		16: return "Neurobox"
-		17: return "Tutorial"
-		18: return "Currency Creation"
-		19: return "CTF"
+		Type.Unknown				: return "Unknown"
+		Type.PoliceStation			: return "Police Station"
+		Type.Universities			: return "Universities"
+		Type.Supermarkets			: return "Supermarkets"
+		Type.FastFood				: return "Fast Food"
+		Type.Workshop				: return "Workshop"
+		Type.MobileShop				: return "Mobile Shop"
+		Type.Hospitals				: return "Hospitals"
+		Type.Banks					: return "Banks"
+		Type.Individuals			: return "Individuals"
+		Type.MailServices			: return "Mail Services"
+		Type.HackShop				: return "Hack Shop"
+		Type.ComputerStore			: return "Computer Store"
+		Type.RentServer				: return "Rent Server"
+		Type.NetServices			: return "Net Services"
+		Type.HardwareManufacturer	: return "Hardware Manufacturer"
+		Type.Neurobox				: return "Neurobox"
+		Type.Tutorial				: return "Tutorial"
+		Type.CurrencyCreation		: return "Currency Creation"
+		Type.CTF					: return "CTF"
 		_: return str(type)
 
-static func type_to_texture(type: int) -> Texture2D:
+static func type_to_texture(type: Type) -> Texture2D:
 	match type:
-		1: return preload("res://assets/ip_icons/police.svg")
-		2: return preload("res://assets/ip_icons/university.svg")
-		3: return preload("res://assets/ip_icons/shop.svg")
-		4: return preload("res://assets/ip_icons/fast_food.svg")
-		5: return preload("res://assets/ip_icons/car_work.svg")
-		6: return preload("res://assets/ip_icons/phone.svg")
-		7: return preload("res://assets/ip_icons/hospital.svg")
-		8: return preload("res://assets/ip_icons/bank.svg")
-		9: return preload("res://assets/ip_icons/blog.svg")
-		10: return preload("res://assets/ip_icons/email.svg")
-		11: return preload("res://assets/ip_icons/hack.svg")
-		12: return preload("res://assets/ip_icons/eshop.svg")
-		13: return preload("res://assets/ip_icons/server.svg")
-		14: return preload("res://assets/ip_icons/isp.svg")
-		15: return preload("res://assets/ip_icons/electronic.svg")
-		16: return preload("res://assets/ip_icons/target.svg")
-		17: return preload("res://assets/ip_icons/tutorial.svg")
-		18: return preload("res://assets/ip_icons/crypto.svg")
-		19: return preload("res://assets/ip_icons/ctf.svg")
+		Type.PoliceStation			: return preload("res://assets/ip_icons/police.svg")
+		Type.Universities			: return preload("res://assets/ip_icons/university.svg")
+		Type.Supermarkets			: return preload("res://assets/ip_icons/shop.svg")
+		Type.FastFood				: return preload("res://assets/ip_icons/fast_food.svg")
+		Type.Workshop				: return preload("res://assets/ip_icons/car_work.svg")
+		Type.MobileShop				: return preload("res://assets/ip_icons/phone.svg")
+		Type.Hospitals				: return preload("res://assets/ip_icons/hospital.svg")
+		Type.Banks					: return preload("res://assets/ip_icons/bank.svg")
+		Type.Individuals			: return preload("res://assets/ip_icons/blog.svg")
+		Type.MailServices			: return preload("res://assets/ip_icons/email.svg")
+		Type.HackShop				: return preload("res://assets/ip_icons/hack.svg")
+		Type.ComputerStore			: return preload("res://assets/ip_icons/eshop.svg")
+		Type.RentServer				: return preload("res://assets/ip_icons/server.svg")
+		Type.NetServices			: return preload("res://assets/ip_icons/isp.svg")
+		Type.HardwareManufacturer	: return preload("res://assets/ip_icons/electronic.svg")
+		Type.Neurobox				: return preload("res://assets/ip_icons/target.svg")
+		Type.Tutorial				: return preload("res://assets/ip_icons/tutorial.svg")
+		Type.CurrencyCreation		: return preload("res://assets/ip_icons/crypto.svg")
+		Type.CTF					: return preload("res://assets/ip_icons/ctf.svg")
 		_: return null

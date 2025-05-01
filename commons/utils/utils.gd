@@ -55,3 +55,8 @@ static func prettier_content(base_content: Variant) -> String:
 func _is_iso_datetime(s: String) -> bool:
 	# 简单正则匹配 ISO8601 日期字符串格式
 	return s.match("^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[+-]\\d{2}:\\d{2})?$")
+
+static func is_valid_uuid(s: String) -> bool:
+	# UUID 的正则表达式，匹配标准的 UUID 格式
+	var uuid_regex = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+	return s.match(uuid_regex)

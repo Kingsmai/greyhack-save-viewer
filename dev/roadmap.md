@@ -49,16 +49,25 @@
 
 ## Computer Information
 
-- [ ] Computer List (Group by IP, Use the old implementation)
-  - [ ] List Icon
-- [ ] Computer Details
-  - [ ] Is Router
-  - [ ] Is Player
-  - [ ] Is Rented
-  - [ ] Is CTF
-- [ ] File System (Use the old implementation)
-- [ ] File Details (Use the old implementation)
-- [ ] File Viewer
+- [x] Computer List (Group by IP, Use the old implementation)
+  - [x] List Icon
+  - [x] Open with tab
+- [x] Computer Details
+  - [x] Is Router
+  - [x] Is Player
+  - [x] Is Rented
+  - [x] Is CTF
+- [x] File System (Use the old implementation)
+- [x] File Details (Use the old implementation)
+  - [ ] More File Details
+    - [ ] Command
+    - [ ] Symlink
+    - [ ] Size
+    - [ ] Process
+    - [ ] serverPath
+    - [ ] missionId
+    - [ ] typeFile
+- [x] File Viewer (Use the old implementation)
 - [ ] Open With Option
   - [ ] Parse data from JSON to visualized view
   - [ ] Parse data from XML to visualized view
@@ -66,26 +75,27 @@
   - [ ] Highlight gdscript, html, json, xml
   - [ ] Decrypt password files
 - [ ] Smart Open File (file type detection)
-- [ ] Installed hardware
-  - [ ] Hard Disk
-  - [ ] CPUs (list)
-  - [ ] RAMs (list)
-  - [ ] GPU
-  - [ ] Power Supply
-  - [ ] Motherboard
-  - [ ] Network Devices (list)
-- [ ] Registered User List (Use the old implementation)
-  - [ ] Username
-  - [ ] Group (List)
-  - [ ] Encrypted Password
-  - [ ] Plain Password
-  - [ ] Is Deletable
-  - [ ] Total Experience
-  - [ ] Karma
-    - [ ] Current Karma
-    - [ ] Previous Karma
-    - [ ] Pending Mission
+- [x] Installed hardware
+  - [x] Hard Disk
+  - [x] CPUs (list)
+  - [x] RAMs (list)
+  - [x] GPU
+  - [x] Power Supply
+  - [x] Motherboard
+  - [x] Network Devices (list)
+- [x] Registered User List (Use the old implementation)
+  - [x] Username
+  - [x] Group (List)
+  - [x] Encrypted Password
+  - [x] Plain Password
+  - [x] Is Deletable
+  - [x] Total Experience
+  - [x] Karma
+    - [x] Current Karma
+    - [x] Previous Karma
+    - [x] Pending Mission
 - [ ] Process List
+- [x] Config OS (Raw View)
 - [ ] **Huge problem**
   - [ ] Config OS
     - [ ] Analysis for computer ConfigOS

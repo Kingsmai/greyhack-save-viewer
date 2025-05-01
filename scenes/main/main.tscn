@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cp1ioem18ac4l"]
+[gd_scene load_steps=4 format=3 uid="uid://cp1ioem18ac4l"]
 
 [ext_resource type="Script" uid="uid://bbnhgcd0ot2yv" path="res://scenes/main/main.gd" id="1_hyk8p"]
 [ext_resource type="PackedScene" uid="uid://gi5wo0lwi8yo" path="res://views/player_view.tscn" id="2_iuonh"]
+[ext_resource type="PackedScene" uid="uid://cwk6q0gkdhat8" path="res://views/computers_view.tscn" id="3_k2fmo"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -46,4 +47,8 @@ size_flags_vertical = 3
 current_tab = 0
 
 [node name="Player" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer" instance=ExtResource("2_iuonh")]
+layout_mode = 2
+
+[node name="Computers" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer" instance=ExtResource("3_k2fmo")]
+visible = false
 layout_mode = 2

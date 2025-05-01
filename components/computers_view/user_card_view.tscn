@@ -1,0 +1,99 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbsgk17kicksu"]
+
+[ext_resource type="Script" uid="uid://bvhv1gqt5w4e" path="res://components/computers_view/user_card_view.gd" id="1_43m1v"]
+
+[node name="UserCardView" type="PanelContainer"]
+custom_minimum_size = Vector2(360, 0)
+script = ExtResource("1_43m1v")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="UsernameLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "root"
+horizontal_alignment = 1
+
+[node name="PasswordContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/PasswordContainer"]
+custom_minimum_size = Vector2(132, 0)
+layout_mode = 2
+text = "Password: "
+
+[node name="PasswordLineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/PasswordContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PlainPasswordContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/PlainPasswordContainer2"]
+custom_minimum_size = Vector2(132, 0)
+layout_mode = 2
+text = "Plain Password: "
+
+[node name="PlainPasswordLineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/PlainPasswordContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Groups:"
+
+[node name="GroupTree" type="Tree" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 72)
+layout_mode = 2
+
+[node name="IsDeletableCheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Is Deletable"
+
+[node name="TotalExpContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/TotalExpContainer"]
+custom_minimum_size = Vector2(132, 0)
+layout_mode = 2
+text = "Total Exp:"
+
+[node name="TotalExpLineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/TotalExpContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="KarmaContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/KarmaContainer"]
+custom_minimum_size = Vector2(132, 0)
+layout_mode = 2
+text = "Karma:"
+
+[node name="KarmaProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer/KarmaContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = -100.0
+
+[node name="PendingMissionContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/PendingMissionContainer"]
+custom_minimum_size = Vector2(132, 0)
+layout_mode = 2
+text = "Pending Mission:"
+
+[node name="PendingMissionLineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/PendingMissionContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3

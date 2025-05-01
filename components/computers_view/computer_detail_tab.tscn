@@ -1,0 +1,80 @@
+[gd_scene load_steps=6 format=3 uid="uid://crepkb1l6l5uv"]
+
+[ext_resource type="Script" uid="uid://7evhf6t7q0hw" path="res://components/computers_view/computer_detail_tab.gd" id="1_7opic"]
+[ext_resource type="PackedScene" uid="uid://1jsusc1jpfnd" path="res://components/computers_view/file_system_view.tscn" id="2_frgch"]
+[ext_resource type="PackedScene" uid="uid://lcm4nr6oh6b8" path="res://components/computers_view/users_view.tscn" id="3_ptlui"]
+[ext_resource type="PackedScene" uid="uid://dmbrlsl2lwjd8" path="res://components/computers_view/hardware_view.tscn" id="4_o71sy"]
+[ext_resource type="PackedScene" uid="uid://d5vmh254mehi" path="res://components/computers_view/config_os_view.tscn" id="5_sbhcf"]
+
+[node name="ComputerDetailTab" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7opic")
+metadata/_tab_index = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="CloseButton" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Close"
+
+[node name="FlagsContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="IsRouterCheckBox" type="CheckBox" parent="VBoxContainer/FlagsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+disabled = true
+text = "Is Router?"
+
+[node name="IsPlayerCheckBox" type="CheckBox" parent="VBoxContainer/FlagsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+disabled = true
+text = "Is Player?"
+
+[node name="IsRentedCheckBox" type="CheckBox" parent="VBoxContainer/FlagsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+disabled = true
+text = "Is Rented?"
+
+[node name="IsCtfCheckBox" type="CheckBox" parent="VBoxContainer/FlagsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+disabled = true
+text = "Is CTF?"
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+tab_alignment = 1
+current_tab = 0
+
+[node name="FileSystem" parent="VBoxContainer/TabContainer" instance=ExtResource("2_frgch")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Users" parent="VBoxContainer/TabContainer" instance=ExtResource("3_ptlui")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="Hardware" parent="VBoxContainer/TabContainer" instance=ExtResource("4_o71sy")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="ConfigOS" parent="VBoxContainer/TabContainer" instance=ExtResource("5_sbhcf")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2

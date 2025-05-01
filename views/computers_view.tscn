@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwk6q0gkdhat8"]
+
+[ext_resource type="Script" uid="uid://blp3xp2rwh3yr" path="res://views/computers_view.gd" id="1_0yg1k"]
+[ext_resource type="PackedScene" uid="uid://crepkb1l6l5uv" path="res://components/computers_view/computer_detail_tab.tscn" id="2_lsews"]
+
+[node name="ComputersView" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0yg1k")
+metadata/_tab_index = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ComputersTree" type="Tree" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.25
+
+[node name="ComputerTabContainer" type="TabContainer" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+current_tab = 0
+drag_to_rearrange_enabled = true
+
+[node name="ComputerDetailTab" parent="VBoxContainer/HBoxContainer/ComputerTabContainer" instance=ExtResource("2_lsews")]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Disclaimer" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "If the target IP is not found in this list, it indicates that the computer (target) has not yet been created."

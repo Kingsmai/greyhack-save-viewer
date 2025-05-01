@@ -1,0 +1,1056 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmbrlsl2lwjd8"]
+
+[ext_resource type="Script" uid="uid://b2y44p28juc7p" path="res://components/computers_view/hardware_view.gd" id="1_t52of"]
+
+[node name="Hardware" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t52of")
+metadata/_tab_index = 2
+
+[node name="HardwareTabContainer" type="TabContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+tab_alignment = 1
+current_tab = 0
+
+[node name="Motherboard" type="MarginContainer" parent="HardwareTabContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HardwareTabContainer/Motherboard"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HardwareTabContainer/Motherboard/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="HardwareTabContainer/Motherboard/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/Motherboard/HBoxContainer/VBoxContainer2/HBoxContainer7"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Motherboard ID"
+
+[node name="MotherboardIdLineEdit" type="LineEdit" parent="HardwareTabContainer/Motherboard/HBoxContainer/VBoxContainer2/HBoxContainer7"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer8" type="HBoxContainer" parent="HardwareTabContainer/Motherboard/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/Motherboard/HBoxContainer/VBoxContainer2/HBoxContainer8"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Motherboard Name"
+
+[node name="MotherboardNameLineEdit" type="LineEdit" parent="HardwareTabContainer/Motherboard/HBoxContainer/VBoxContainer2/HBoxContainer8"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer9" type="HBoxContainer" parent="HardwareTabContainer/Motherboard/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/Motherboard/HBoxContainer/VBoxContainer2/HBoxContainer9"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Power Requirements"
+
+[node name="MotherboardPowerRequirementLineEdit" type="LineEdit" parent="HardwareTabContainer/Motherboard/HBoxContainer/VBoxContainer2/HBoxContainer9"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer10" type="HBoxContainer" parent="HardwareTabContainer/Motherboard/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/Motherboard/HBoxContainer/VBoxContainer2/HBoxContainer10"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Quality"
+
+[node name="MotherboardQualityProgressBar" type="ProgressBar" parent="HardwareTabContainer/Motherboard/HBoxContainer/VBoxContainer2/HBoxContainer10"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer11" type="HBoxContainer" parent="HardwareTabContainer/Motherboard/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/Motherboard/HBoxContainer/VBoxContainer2/HBoxContainer11"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Health"
+
+[node name="MotherboardHealthProgressBar" type="ProgressBar" parent="HardwareTabContainer/Motherboard/HBoxContainer/VBoxContainer2/HBoxContainer11"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer12" type="HBoxContainer" parent="HardwareTabContainer/Motherboard/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/Motherboard/HBoxContainer/VBoxContainer2/HBoxContainer12"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Type"
+
+[node name="MotherboardTypeLineEdit" type="LineEdit" parent="HardwareTabContainer/Motherboard/HBoxContainer/VBoxContainer2/HBoxContainer12"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer13" type="HBoxContainer" parent="HardwareTabContainer/Motherboard/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="MotherboardIsSellableCheckbox" type="CheckBox" parent="HardwareTabContainer/Motherboard/HBoxContainer/VBoxContainer2/HBoxContainer13"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Is Sellable?"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HardwareTabContainer/Motherboard/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HardwareTabContainer/Motherboard/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/Motherboard/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "CPU Counts"
+
+[node name="MotherboardCpuCountLineEdit" type="LineEdit" parent="HardwareTabContainer/Motherboard/HBoxContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HardwareTabContainer/Motherboard/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/Motherboard/HBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "CPU Socket"
+
+[node name="MotherboardCpuSocketLineEdit" type="LineEdit" parent="HardwareTabContainer/Motherboard/HBoxContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="HardwareTabContainer/Motherboard/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/Motherboard/HBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "RAM Version"
+
+[node name="MotherboardRamVersionLineEdit" type="LineEdit" parent="HardwareTabContainer/Motherboard/HBoxContainer/VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="HardwareTabContainer/Motherboard/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/Motherboard/HBoxContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "RAM Socket Count"
+
+[node name="MotherboardRamSocketCountLineEdit" type="LineEdit" parent="HardwareTabContainer/Motherboard/HBoxContainer/VBoxContainer/HBoxContainer4"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="HardwareTabContainer/Motherboard/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/Motherboard/HBoxContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Max RAM Memory Per Socket"
+
+[node name="MotherboardMaxRamMemoryPerSocketLineEdit" type="LineEdit" parent="HardwareTabContainer/Motherboard/HBoxContainer/VBoxContainer/HBoxContainer5"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="HardwareTabContainer/Motherboard/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/Motherboard/HBoxContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "PCI Count"
+
+[node name="MotherboardPciCountLineEdit" type="LineEdit" parent="HardwareTabContainer/Motherboard/HBoxContainer/VBoxContainer/HBoxContainer6"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CPUs" type="MarginContainer" parent="HardwareTabContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HardwareTabContainer/CPUs"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HardwareTabContainer/CPUs/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HardwareTabContainer/CPUs/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="HardwareTabContainer/CPUs/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/CPUs/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer7"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "CPU ID"
+
+[node name="CpuIdLineEdit" type="LineEdit" parent="HardwareTabContainer/CPUs/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer7"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer8" type="HBoxContainer" parent="HardwareTabContainer/CPUs/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/CPUs/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer8"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "CPU Name"
+
+[node name="CpuNameLineEdit" type="LineEdit" parent="HardwareTabContainer/CPUs/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer8"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer9" type="HBoxContainer" parent="HardwareTabContainer/CPUs/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/CPUs/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer9"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Power Requirements"
+
+[node name="CpuPowerRequirementLineEdit" type="LineEdit" parent="HardwareTabContainer/CPUs/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer9"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer10" type="HBoxContainer" parent="HardwareTabContainer/CPUs/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/CPUs/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer10"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Quality"
+
+[node name="CpuQualityProgressBar" type="ProgressBar" parent="HardwareTabContainer/CPUs/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer10"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer11" type="HBoxContainer" parent="HardwareTabContainer/CPUs/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/CPUs/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer11"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Health"
+
+[node name="CpuHealthProgressBar" type="ProgressBar" parent="HardwareTabContainer/CPUs/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer11"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer12" type="HBoxContainer" parent="HardwareTabContainer/CPUs/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/CPUs/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer12"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Type"
+
+[node name="CpuTypeLineEdit" type="LineEdit" parent="HardwareTabContainer/CPUs/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer12"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer13" type="HBoxContainer" parent="HardwareTabContainer/CPUs/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="CpuIsSellableCheckbox" type="CheckBox" parent="HardwareTabContainer/CPUs/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer13"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Is Sellable?"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HardwareTabContainer/CPUs/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HardwareTabContainer/CPUs/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/CPUs/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "CPU Speed"
+
+[node name="CpuSpeedLineEdit" type="LineEdit" parent="HardwareTabContainer/CPUs/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HardwareTabContainer/CPUs/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/CPUs/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "CPU Core Count"
+
+[node name="CpuCoreCountLineEdit" type="LineEdit" parent="HardwareTabContainer/CPUs/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="HardwareTabContainer/CPUs/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/CPUs/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "CPU Socket"
+
+[node name="CpuSocketLineEdit" type="LineEdit" parent="HardwareTabContainer/CPUs/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CPUButtonsContainer" type="HBoxContainer" parent="HardwareTabContainer/CPUs/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="RAMs" type="MarginContainer" parent="HardwareTabContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HardwareTabContainer/RAMs"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HardwareTabContainer/RAMs/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HardwareTabContainer/RAMs/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="HardwareTabContainer/RAMs/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/RAMs/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer7"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "RAM ID"
+
+[node name="RamIdLineEdit" type="LineEdit" parent="HardwareTabContainer/RAMs/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer7"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer8" type="HBoxContainer" parent="HardwareTabContainer/RAMs/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/RAMs/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer8"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "RAM Name"
+
+[node name="RamNameLineEdit" type="LineEdit" parent="HardwareTabContainer/RAMs/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer8"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer9" type="HBoxContainer" parent="HardwareTabContainer/RAMs/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/RAMs/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer9"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Power Requirements"
+
+[node name="RamPowerRequirementLineEdit" type="LineEdit" parent="HardwareTabContainer/RAMs/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer9"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer10" type="HBoxContainer" parent="HardwareTabContainer/RAMs/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/RAMs/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer10"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Quality"
+
+[node name="RamQualityProgressBar" type="ProgressBar" parent="HardwareTabContainer/RAMs/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer10"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer11" type="HBoxContainer" parent="HardwareTabContainer/RAMs/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/RAMs/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer11"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Health"
+
+[node name="RamHealthProgressBar" type="ProgressBar" parent="HardwareTabContainer/RAMs/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer11"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer12" type="HBoxContainer" parent="HardwareTabContainer/RAMs/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/RAMs/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer12"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Type"
+
+[node name="RamTypeLineEdit" type="LineEdit" parent="HardwareTabContainer/RAMs/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer12"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer13" type="HBoxContainer" parent="HardwareTabContainer/RAMs/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="RamIsSellableCheckbox" type="CheckBox" parent="HardwareTabContainer/RAMs/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer13"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Is Sellable?"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HardwareTabContainer/RAMs/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HardwareTabContainer/RAMs/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/RAMs/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "RAM Memory"
+
+[node name="RamSizeLineEdit" type="LineEdit" parent="HardwareTabContainer/RAMs/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HardwareTabContainer/RAMs/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/RAMs/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "RAM Model"
+
+[node name="RamModelLineEdit" type="LineEdit" parent="HardwareTabContainer/RAMs/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RAMButtonsContainer" type="HBoxContainer" parent="HardwareTabContainer/RAMs/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="GPU" type="MarginContainer" parent="HardwareTabContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HardwareTabContainer/GPU"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HardwareTabContainer/GPU/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="HardwareTabContainer/GPU/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/GPU/HBoxContainer/VBoxContainer2/HBoxContainer7"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "GPU ID"
+
+[node name="GpuIdLineEdit" type="LineEdit" parent="HardwareTabContainer/GPU/HBoxContainer/VBoxContainer2/HBoxContainer7"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer8" type="HBoxContainer" parent="HardwareTabContainer/GPU/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/GPU/HBoxContainer/VBoxContainer2/HBoxContainer8"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "GPU Name"
+
+[node name="GpuNameLineEdit" type="LineEdit" parent="HardwareTabContainer/GPU/HBoxContainer/VBoxContainer2/HBoxContainer8"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer9" type="HBoxContainer" parent="HardwareTabContainer/GPU/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/GPU/HBoxContainer/VBoxContainer2/HBoxContainer9"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Power Requirements"
+
+[node name="GpuPowerRequirementLineEdit" type="LineEdit" parent="HardwareTabContainer/GPU/HBoxContainer/VBoxContainer2/HBoxContainer9"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer10" type="HBoxContainer" parent="HardwareTabContainer/GPU/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/GPU/HBoxContainer/VBoxContainer2/HBoxContainer10"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Quality"
+
+[node name="GpuQualityProgressBar" type="ProgressBar" parent="HardwareTabContainer/GPU/HBoxContainer/VBoxContainer2/HBoxContainer10"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer11" type="HBoxContainer" parent="HardwareTabContainer/GPU/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/GPU/HBoxContainer/VBoxContainer2/HBoxContainer11"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Health"
+
+[node name="GpuHealthProgressBar" type="ProgressBar" parent="HardwareTabContainer/GPU/HBoxContainer/VBoxContainer2/HBoxContainer11"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer12" type="HBoxContainer" parent="HardwareTabContainer/GPU/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/GPU/HBoxContainer/VBoxContainer2/HBoxContainer12"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Type"
+
+[node name="GpuTypeLineEdit" type="LineEdit" parent="HardwareTabContainer/GPU/HBoxContainer/VBoxContainer2/HBoxContainer12"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer13" type="HBoxContainer" parent="HardwareTabContainer/GPU/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="GpuIsSellableCheckbox" type="CheckBox" parent="HardwareTabContainer/GPU/HBoxContainer/VBoxContainer2/HBoxContainer13"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Is Sellable?"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HardwareTabContainer/GPU/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HardwareTabContainer/GPU/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/GPU/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "GPU Hashrate"
+
+[node name="GpuHashrateLineEdit" type="LineEdit" parent="HardwareTabContainer/GPU/HBoxContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HardDisk" type="MarginContainer" parent="HardwareTabContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+metadata/_tab_index = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HardwareTabContainer/HardDisk"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HardwareTabContainer/HardDisk/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="HardwareTabContainer/HardDisk/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/HardDisk/HBoxContainer/VBoxContainer2/HBoxContainer7"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Hard Disk ID"
+
+[node name="HardDiskIdLineEdit" type="LineEdit" parent="HardwareTabContainer/HardDisk/HBoxContainer/VBoxContainer2/HBoxContainer7"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer8" type="HBoxContainer" parent="HardwareTabContainer/HardDisk/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/HardDisk/HBoxContainer/VBoxContainer2/HBoxContainer8"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Hard Disk Name"
+
+[node name="HardDiskNameLineEdit" type="LineEdit" parent="HardwareTabContainer/HardDisk/HBoxContainer/VBoxContainer2/HBoxContainer8"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer9" type="HBoxContainer" parent="HardwareTabContainer/HardDisk/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/HardDisk/HBoxContainer/VBoxContainer2/HBoxContainer9"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Power Requirements"
+
+[node name="HardDiskPowerRequirementLineEdit" type="LineEdit" parent="HardwareTabContainer/HardDisk/HBoxContainer/VBoxContainer2/HBoxContainer9"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer10" type="HBoxContainer" parent="HardwareTabContainer/HardDisk/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/HardDisk/HBoxContainer/VBoxContainer2/HBoxContainer10"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Quality"
+
+[node name="HardDiskQualityProgressBar" type="ProgressBar" parent="HardwareTabContainer/HardDisk/HBoxContainer/VBoxContainer2/HBoxContainer10"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer11" type="HBoxContainer" parent="HardwareTabContainer/HardDisk/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/HardDisk/HBoxContainer/VBoxContainer2/HBoxContainer11"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Health"
+
+[node name="HardDiskHealthProgressBar" type="ProgressBar" parent="HardwareTabContainer/HardDisk/HBoxContainer/VBoxContainer2/HBoxContainer11"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer12" type="HBoxContainer" parent="HardwareTabContainer/HardDisk/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/HardDisk/HBoxContainer/VBoxContainer2/HBoxContainer12"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Type"
+
+[node name="HardDiskTypeLineEdit" type="LineEdit" parent="HardwareTabContainer/HardDisk/HBoxContainer/VBoxContainer2/HBoxContainer12"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer13" type="HBoxContainer" parent="HardwareTabContainer/HardDisk/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="HardDiskIsSellableCheckbox" type="CheckBox" parent="HardwareTabContainer/HardDisk/HBoxContainer/VBoxContainer2/HBoxContainer13"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Is Sellable?"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HardwareTabContainer/HardDisk/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HardwareTabContainer/HardDisk/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/HardDisk/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Hard Disk Speed"
+
+[node name="HardDiskSpeedLineEdit" type="LineEdit" parent="HardwareTabContainer/HardDisk/HBoxContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HardwareTabContainer/HardDisk/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/HardDisk/HBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Hard Disk Actual Speed"
+
+[node name="HardDiskActualSpeedLineEdit" type="LineEdit" parent="HardwareTabContainer/HardDisk/HBoxContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="HardwareTabContainer/HardDisk/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/HardDisk/HBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Hard Disk Total Size"
+
+[node name="HardDiskTotalSizeLineEdit" type="LineEdit" parent="HardwareTabContainer/HardDisk/HBoxContainer/VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="HardwareTabContainer/HardDisk/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/HardDisk/HBoxContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Hard Disk Performance"
+
+[node name="HardDiskPerformanceLineEdit" type="LineEdit" parent="HardwareTabContainer/HardDisk/HBoxContainer/VBoxContainer/HBoxContainer4"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="HardwareTabContainer/HardDisk/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/HardDisk/HBoxContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Hard Disk Affect Performance"
+
+[node name="HardDiskAffectPerformanceLineEdit" type="LineEdit" parent="HardwareTabContainer/HardDisk/HBoxContainer/VBoxContainer/HBoxContainer5"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NetDevice" type="MarginContainer" parent="HardwareTabContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+metadata/_tab_index = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HardwareTabContainer/NetDevice"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HardwareTabContainer/NetDevice/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HardwareTabContainer/NetDevice/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="HardwareTabContainer/NetDevice/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/NetDevice/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer7"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Network Device ID"
+
+[node name="NetDeviceIdLineEdit" type="LineEdit" parent="HardwareTabContainer/NetDevice/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer7"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer8" type="HBoxContainer" parent="HardwareTabContainer/NetDevice/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/NetDevice/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer8"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Network Device Name"
+
+[node name="NetDeviceNameLineEdit" type="LineEdit" parent="HardwareTabContainer/NetDevice/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer8"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer9" type="HBoxContainer" parent="HardwareTabContainer/NetDevice/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/NetDevice/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer9"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Power Requirements"
+
+[node name="NetDevicePowerRequirementLineEdit" type="LineEdit" parent="HardwareTabContainer/NetDevice/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer9"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer10" type="HBoxContainer" parent="HardwareTabContainer/NetDevice/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/NetDevice/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer10"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Quality"
+
+[node name="NetDeviceQualityProgressBar" type="ProgressBar" parent="HardwareTabContainer/NetDevice/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer10"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer11" type="HBoxContainer" parent="HardwareTabContainer/NetDevice/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/NetDevice/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer11"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Health"
+
+[node name="NetDeviceHealthProgressBar" type="ProgressBar" parent="HardwareTabContainer/NetDevice/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer11"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer12" type="HBoxContainer" parent="HardwareTabContainer/NetDevice/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/NetDevice/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer12"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Type"
+
+[node name="NetDeviceTypeLineEdit" type="LineEdit" parent="HardwareTabContainer/NetDevice/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer12"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer13" type="HBoxContainer" parent="HardwareTabContainer/NetDevice/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="NetDeviceIsSellableCheckbox" type="CheckBox" parent="HardwareTabContainer/NetDevice/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer13"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Is Sellable?"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HardwareTabContainer/NetDevice/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HardwareTabContainer/NetDevice/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="NetDeviceIsWifiCheckBox" type="CheckBox" parent="HardwareTabContainer/NetDevice/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Is WiFi?"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HardwareTabContainer/NetDevice/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="NetDeviceIsMonitorSupportCheckBox" type="CheckBox" parent="HardwareTabContainer/NetDevice/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Monitor Support?"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="HardwareTabContainer/NetDevice/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="NetDeviceIsMonitorEnabledCheckbox" type="CheckBox" parent="HardwareTabContainer/NetDevice/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Monitor Enabled?"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="HardwareTabContainer/NetDevice/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/NetDevice/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "BSSID Access Point"
+
+[node name="NetDeviceBssidLineEdit" type="LineEdit" parent="HardwareTabContainer/NetDevice/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer4"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="HardwareTabContainer/NetDevice/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/NetDevice/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "ESSID Access Point"
+
+[node name="NetDeviceEssidLineEdit" type="LineEdit" parent="HardwareTabContainer/NetDevice/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer5"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NetDeviceButtonsContainer" type="HBoxContainer" parent="HardwareTabContainer/NetDevice/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="PSU" type="MarginContainer" parent="HardwareTabContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+metadata/_tab_index = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HardwareTabContainer/PSU"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HardwareTabContainer/PSU/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="HardwareTabContainer/PSU/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/PSU/HBoxContainer/VBoxContainer2/HBoxContainer7"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "PSU ID"
+
+[node name="PSUIdLineEdit" type="LineEdit" parent="HardwareTabContainer/PSU/HBoxContainer/VBoxContainer2/HBoxContainer7"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer8" type="HBoxContainer" parent="HardwareTabContainer/PSU/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/PSU/HBoxContainer/VBoxContainer2/HBoxContainer8"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "PSU Name"
+
+[node name="PSUNameLineEdit" type="LineEdit" parent="HardwareTabContainer/PSU/HBoxContainer/VBoxContainer2/HBoxContainer8"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer9" type="HBoxContainer" parent="HardwareTabContainer/PSU/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/PSU/HBoxContainer/VBoxContainer2/HBoxContainer9"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Power Requirements"
+
+[node name="PSUPowerRequirementLineEdit" type="LineEdit" parent="HardwareTabContainer/PSU/HBoxContainer/VBoxContainer2/HBoxContainer9"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer10" type="HBoxContainer" parent="HardwareTabContainer/PSU/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/PSU/HBoxContainer/VBoxContainer2/HBoxContainer10"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Quality"
+
+[node name="PSUQualityProgressBar" type="ProgressBar" parent="HardwareTabContainer/PSU/HBoxContainer/VBoxContainer2/HBoxContainer10"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer11" type="HBoxContainer" parent="HardwareTabContainer/PSU/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/PSU/HBoxContainer/VBoxContainer2/HBoxContainer11"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Health"
+
+[node name="PSUHealthProgressBar" type="ProgressBar" parent="HardwareTabContainer/PSU/HBoxContainer/VBoxContainer2/HBoxContainer11"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer12" type="HBoxContainer" parent="HardwareTabContainer/PSU/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/PSU/HBoxContainer/VBoxContainer2/HBoxContainer12"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Type"
+
+[node name="PSUTypeLineEdit" type="LineEdit" parent="HardwareTabContainer/PSU/HBoxContainer/VBoxContainer2/HBoxContainer12"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer13" type="HBoxContainer" parent="HardwareTabContainer/PSU/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="PSUIsSellableCheckbox" type="CheckBox" parent="HardwareTabContainer/PSU/HBoxContainer/VBoxContainer2/HBoxContainer13"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Is Sellable?"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HardwareTabContainer/PSU/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HardwareTabContainer/PSU/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HardwareTabContainer/PSU/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "PSU Power Supply"
+
+[node name="PSUPowerSupplyLineEdit" type="LineEdit" parent="HardwareTabContainer/PSU/HBoxContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
