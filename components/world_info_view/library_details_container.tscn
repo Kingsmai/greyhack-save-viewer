@@ -1,0 +1,87 @@
+[gd_scene load_steps=2 format=3 uid="uid://i4yy771itly2"]
+
+[ext_resource type="Script" uid="uid://cbac6iu5rdsg6" path="res://components/world_info_view/library_details_container.gd" id="1_nedk5"]
+
+[node name="LibraryDetailsContainer" type="VBoxContainer"]
+size_flags_horizontal = 3
+script = ExtResource("1_nedk5")
+
+[node name="LibIdContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="LibIdContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.6
+text = "Library ID"
+
+[node name="LibIdLineEdit" type="LineEdit" parent="LibIdContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+editable = false
+
+[node name="PatchIdContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PatchIdContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.6
+text = "Patch ID"
+
+[node name="PatchIdLineEdit" type="LineEdit" parent="PatchIdContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+editable = false
+
+[node name="AutoPatchTimeContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="AutoPatchTimeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.6
+text = "Auto Patch Time"
+
+[node name="AutoPatchTimeLineEdit" type="LineEdit" parent="AutoPatchTimeContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+editable = false
+
+[node name="NumPatchesContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="NumPatchesContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.6
+text = "Number of Patches"
+
+[node name="NumPatchesLineEdit" type="LineEdit" parent="NumPatchesContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+editable = false
+
+[node name="LatestVersionContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="LatestVersionContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.6
+text = "Lastest Version"
+
+[node name="LatestVersionLineEdit" type="LineEdit" parent="LatestVersionContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+editable = false
+
+[node name="MemoryZoneTree" type="Tree" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3

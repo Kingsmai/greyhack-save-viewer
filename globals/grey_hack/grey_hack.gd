@@ -1,18 +1,17 @@
 extends Node
 
 signal player_details_load(player_data: Player)
-
 signal computers_load(computers_data: Array[Computer])
-
 signal map_load(map_data: Array[MapObject])
-
 signal web_pages_load(web_pages: Array[WebPage])
+signal world_info_load(world_info: WorldInfo)
 
 var player: Player
 var computers_metadata: Array[Computer]
 var map_data: Array[MapObject]
 var saved_password: Dictionary[String, String]
 var web_pages: Array[WebPage]
+var world_info: WorldInfo
 
 func _ready() -> void:
 	if ProjectSettings.get_setting("application/config/isDebug"):
@@ -34,6 +33,8 @@ func load_data() -> void:
 	map_load.emit(map_data)
 	web_pages = WebPagesDB.load_web_pages()
 	web_pages_load.emit(web_pages)
+	world_info = InfoGenDB.load_info_gen_data()
+	world_info_load.emit(world_info)
 
 func refresh_password():
 	saved_password = PasswordsDB.get_password_dictionary()

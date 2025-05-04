@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dpyglasm5c0qs"]
 
-[ext_resource type="Script" uid="uid://dv52ft1aalg4d" path="res://components/computers_view/webiste_view.gd" id="1_kyg5m"]
+[ext_resource type="Script" uid="uid://dv52ft1aalg4d" path="res://views/website_view.gd" id="1_kyg5m"]
 
 [node name="Website" type="MarginContainer"]
 anchors_preset = 15

@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://t841viowehys"]
+
+[ext_resource type="Script" uid="uid://vms6miha7f1m" path="res://components/world_info_view/library_content_viewer.gd" id="1_jvjdl"]
+[ext_resource type="PackedScene" uid="uid://lg71e63pa16b" path="res://components/world_info_view/vulnerability_container.tscn" id="2_4t5en"]
+[ext_resource type="PackedScene" uid="uid://i4yy771itly2" path="res://components/world_info_view/library_details_container.tscn" id="2_epw14"]
+
+[node name="LibraryContentViewer" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jvjdl")
+metadata/_tab_index = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="LibraryTree" type="Tree" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.25
+
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LibraryDetailsContainer" parent="HBoxContainer/HBoxContainer" instance=ExtResource("2_epw14")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="VulnerabilityContainer" parent="HBoxContainer/HBoxContainer" instance=ExtResource("2_4t5en")]
+unique_name_in_owner = true
+layout_mode = 2

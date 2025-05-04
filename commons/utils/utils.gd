@@ -60,3 +60,55 @@ static func is_valid_uuid(s: String) -> bool:
 	# UUID 的正则表达式，匹配标准的 UUID 格式
 	var uuid_regex = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
 	return s.match(uuid_regex)
+
+static func html_to_bbcode(html: String) -> String:
+	var bb = html
+	bb = bb.replace("<b>", "[b]").replace("</b>", "[/b]")
+	bb = bb.replace("<strong>", "[b]").replace("</strong>", "[/b]")
+	bb = bb.replace("<i>", "[i]").replace("</i>", "[/i]")
+	bb = bb.replace("<em>", "[i]").replace("</em>", "[/i]")
+	bb = bb.replace("<u>", "[u]").replace("</u>", "[/u]")
+	bb = bb.replace("<br>", "[br]").replace("<br/>", "[br]").replace("<br />", "[br]")
+
+	# 替换链接
+	var link_regex = RegEx.new()
+	link_regex.compile("<a href=['\"](.*?)['\"]>(.*?)</a>")
+	bb = link_regex.sub(bb, "[url=\\1]\\2[/url]", true)
+
+	# 替换颜色标签
+	var color_regex = RegEx.new()
+	color_regex.compile("<span style=['\"]color:(.*?);?['\"]>(.*?)</span>")
+	bb = color_regex.sub(bb, "[color=\\1]\\2[/color]", true)
+
+	# 替换图片标签
+	var img_regex = RegEx.new()
+	img_regex.compile("<img src=['\"](.*?)['\"] ?/?>")
+	bb = img_regex.sub(bb, "[img]\\1[/img]", true)
+
+	# 替换代码块
+	bb = bb.replace("<code>", "[code]").replace("</code>", "[/code]")
+
+	# 移除剩余的 HTML 标签
+	var strip_tag = RegEx.new()
+	strip_tag.compile("<.*?>")
+	bb = strip_tag.sub(bb, "", true)
+
+	return bb
+
+static func gh_html_to_bbcode(html: String) -> String:
+	var bb = html
+
+	# <b> -> [b]
+	bb = bb.replace("<b>", "[b]").replace("</b>", "[/b]")
+
+	# <color=#xxxxxx> -> [color=#xxxxxx]
+	var color_regex = RegEx.new()
+	color_regex.compile("<color=(#[A-Fa-f0-9]+)>")
+	bb = color_regex.sub(bb, "[color=\\1]", true)
+	bb = bb.replace("</color>", "[/color]")
+
+	# 换行处理：保留原始换行符
+	# 如果是 <br> 或 <br />，你也可以加上
+	bb = bb.replace("<br>", "[br]").replace("<br/>", "[br]").replace("<br />", "[br]")
+
+	return bb

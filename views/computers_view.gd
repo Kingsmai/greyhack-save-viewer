@@ -13,7 +13,7 @@ var computer_tree_item_dict: Dictionary[String, TreeItem]
 
 func _ready() -> void:
 	computers_tree.hide_root = true
-	computers_tree.item_activated.connect(_on_computers_tree_item_activated)
+	computers_tree.item_selected.connect(_on_computers_tree_item_selected)
 	GreyHack.computers_load.connect(_on_computers_load)
 
 func _on_computers_load(computers: Array[Computer]):
@@ -46,7 +46,7 @@ func _on_computers_load(computers: Array[Computer]):
 		computer_tree_item.set_text(0, computer.local_id)
 		computer_tree_item.set_metadata(0, computer)
 
-func _on_computers_tree_item_activated() -> void:
+func _on_computers_tree_item_selected() -> void:
 	var selected_computer: Computer = computers_tree.get_selected().get_metadata(0)
 	# Open a new tab if not found in ComputerTabContainer
 	var tab = computer_tab_container.get_children().find_custom(

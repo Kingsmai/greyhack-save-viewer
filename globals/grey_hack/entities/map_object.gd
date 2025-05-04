@@ -17,7 +17,7 @@ var access_type: int
 ## TODO: No data yet
 var mission: String
 
-var lib_versions: LibVersion
+var lib_versions: MapObjectLibVersion
 ## Generated child targets[br]
 ## For example:[br]
 ## [code]
@@ -35,7 +35,7 @@ var mission_npc_names: Dictionary[String, PackedStringArray]
 ## The date of generate
 var date: int
 
-class LibVersion:
+class MapObjectLibVersion:
 	## TODO: No data yet
 	var lib_versions: Dictionary
 	## For example:[br]
@@ -60,7 +60,7 @@ static func parse_map_object_from_json(json: Dictionary) -> MapObject:
 	map_object.mission = json["Mission"]
 	map_object.ip_address = json["IpAddress"]
 	map_object.access_type = json["AccessType"]
-	map_object.lib_versions = LibVersion.new()
+	map_object.lib_versions = MapObjectLibVersion.new()
 	map_object.lib_versions.lib_versions = json["LibVersions"]["libVersions"]
 	map_object.lib_versions.lib_versions_sel = {}
 	for key in json["LibVersions"]["libVersionsSel"]:

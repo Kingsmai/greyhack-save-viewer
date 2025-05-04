@@ -1,0 +1,98 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4if3b34ouy4o"]
+
+[ext_resource type="Script" uid="uid://cmb4o0grkbmve" path="res://components/world_info_view/metadata_viewer.gd" id="1_06hci"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_j02q5"]
+font_size = 88
+
+[node name="MetadataViewer" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_06hci")
+metadata/_tab_index = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="RndSeedContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/RndSeedContainer"]
+layout_mode = 2
+text = "Random Seed"
+
+[node name="RndSeedLineEdit" type="LineEdit" parent="VBoxContainer/RndSeedContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+editable = false
+
+[node name="ClockLabel" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "2000-01-01 00:00:00"
+label_settings = SubResource("LabelSettings_j02q5")
+horizontal_alignment = 1
+
+[node name="GlobalMoneyTitleLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Global Money"
+
+[node name="GlobalMoneyTitleContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="MoneyLabel" type="Label" parent="VBoxContainer/GlobalMoneyTitleContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Money"
+horizontal_alignment = 1
+
+[node name="LastMoneyLabel" type="Label" parent="VBoxContainer/GlobalMoneyTitleContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Last Money"
+horizontal_alignment = 1
+
+[node name="LastYearWithdrawLabel" type="Label" parent="VBoxContainer/GlobalMoneyTitleContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Last Year Withdraw"
+horizontal_alignment = 1
+
+[node name="GlobalMoneyContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="MoneyLineEdit" type="LineEdit" parent="VBoxContainer/GlobalMoneyContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+editable = false
+
+[node name="LastMoneyLineEdit" type="LineEdit" parent="VBoxContainer/GlobalMoneyContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+editable = false
+
+[node name="LastYearWithdrawLineEdit" type="LineEdit" parent="VBoxContainer/GlobalMoneyContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+editable = false
+
+[node name="InvoiceTitleLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Invoices"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="InvoiceItemList" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3

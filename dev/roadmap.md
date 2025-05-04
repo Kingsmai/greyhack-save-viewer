@@ -17,7 +17,7 @@
 - [ ] SharedConns
 - [ ] Stocks
 - [ ] Wallets
-- [ ] WebPages
+- [x] WebPages
 
 ## Player Information
 
@@ -139,3 +139,67 @@
 ### Map View Improvements
 
 - [ ] Able to open corresponding computer when double click the generated pc.
+
+## Webpage View
+
+- [x] Webpage basic info
+
+## World Information
+
+- [ ] Random Seed
+- [ ] Current Clock
+- [ ] Invoices
+- [ ] Global Money
+
+### VersionsControl
+
+> Pending to analyze and develop
+
+### Exploits
+
+#### Exploits JSON Hierarchy
+
+Library Binary Filename (String, child Object)
+
+```plaintext
+Root (object, library_binary_filename)
+│
+├── "1.0.0" (array)
+│   ├── [0] Exploit (object)
+│   │   ├── exploitName: string
+│   │   ├── vulnerab (object)
+│   │   │   ├── typeVulner: integer
+│   │   │   ├── requiredActions: array[false]
+│   │   │   ├── helperHackResult (object)
+│   │   │   │   ├── hackResult: integer
+│   │   │   │   ├── randomPath: string
+│   │   │   │   ├── pathExist: string
+│   │   │   │   ├── user: string
+│   │   │   │   ├── numRegisterUsers: integer
+│   │   │   │   ├── numPortForward: integer
+│   │   │   │   └── numConnGateway: integer
+│   │   │   ├── unsecValue: string
+│   │   │   ├── details: string
+│   │   │   ├── reqLibVersion: null
+│   │   │   ├── isRemote: boolean
+│   │   │   ├── requiredLib: integer
+│   │   │   └── metaxploitVersion (object)
+│   │   │       └── version: array[integer]
+│   │   ├── memZoneAddress: string
+│   │   ├── libName: string
+│   │   ├── description: string
+│   │   ├── partSelected: integer
+│   │   ├── libVersion (object)
+│   │   │   └── version: array[integer]
+│   │   ├── precio: integer
+│   │   └── onlyHide: boolean
+│
+├── "1.0.1" (array)  ← 同上结构
+│
+└── ...
+
+```
+
+### Library and Exploit Improvement
+
+- [ ] Link library and exploits

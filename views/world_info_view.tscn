@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://busrn3xwht5qd"]
+
+[ext_resource type="Script" uid="uid://bf8yumu7piy45" path="res://views/world_info_view.gd" id="1_g5via"]
+[ext_resource type="PackedScene" uid="uid://bcxm61suvuxjk" path="res://components/world_info_view/exploits_viewer.tscn" id="2_2puk3"]
+[ext_resource type="PackedScene" uid="uid://c4if3b34ouy4o" path="res://components/world_info_view/metadata_viewer.tscn" id="2_87y6n"]
+[ext_resource type="PackedScene" uid="uid://dg2x1m8wubhof" path="res://components/world_info_view/libraries_viewer.tscn" id="3_kqc41"]
+[ext_resource type="PackedScene" uid="uid://t841viowehys" path="res://components/world_info_view/library_content_viewer.tscn" id="4_4y7e3"]
+
+[node name="WorldInfo" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g5via")
+metadata/_tab_index = 0
+
+[node name="ExploitContainer" type="TabContainer" parent="."]
+layout_mode = 2
+current_tab = 0
+
+[node name="Metadata" parent="ExploitContainer" instance=ExtResource("2_87y6n")]
+layout_mode = 2
+
+[node name="Exploits" parent="ExploitContainer" instance=ExtResource("2_2puk3")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Libraries" parent="ExploitContainer" instance=ExtResource("3_kqc41")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="LibraryContent" parent="ExploitContainer" instance=ExtResource("4_4y7e3")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
