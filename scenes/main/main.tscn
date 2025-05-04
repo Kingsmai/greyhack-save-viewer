@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cp1ioem18ac4l"]
+[gd_scene load_steps=10 format=3 uid="uid://cp1ioem18ac4l"]
 
 [ext_resource type="Script" uid="uid://bbnhgcd0ot2yv" path="res://scenes/main/main.gd" id="1_hyk8p"]
 [ext_resource type="PackedScene" uid="uid://busrn3xwht5qd" path="res://views/world_info_view.tscn" id="2_hujxm"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ma4h301upe28" path="res://scenes/decipher_window/decipher_window.tscn" id="5_6q06x"]
 [ext_resource type="PackedScene" uid="uid://dpyglasm5c0qs" path="res://views/website_view.tscn" id="5_ow5a4"]
 [ext_resource type="PackedScene" uid="uid://cqs0oq6687w77" path="res://views/credentials_view.tscn" id="7_yyfjg"]
+[ext_resource type="PackedScene" uid="uid://btbl6lsbg8363" path="res://views/bank_view.tscn" id="8_b1x3f"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -80,6 +81,11 @@ layout_mode = 2
 metadata/_tab_index = 4
 
 [node name="Credentials" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer" instance=ExtResource("7_yyfjg")]
+visible = false
+layout_mode = 2
+
+[node name="Bank" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer" instance=ExtResource("8_b1x3f")]
+visible = false
 layout_mode = 2
 
 [node name="DecipherWindow" parent="." instance=ExtResource("5_6q06x")]

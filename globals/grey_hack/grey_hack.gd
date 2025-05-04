@@ -5,6 +5,7 @@ signal computers_load(computers_data: Array[Computer])
 signal map_load(map_data: Array[MapObject])
 signal web_pages_load(web_pages: Array[WebPage])
 signal world_info_load(world_info: WorldInfo)
+signal bank_accounts_load(bank_accounts: Array[BankAccount])
 
 signal file_systems_load(file_systems: Array[FileSystemRoot])
 
@@ -14,6 +15,7 @@ var map_data: Array[MapObject]
 var saved_password: Dictionary[String, String]
 var web_pages: Array[WebPage]
 var world_info: WorldInfo
+var bank_accounts: Array[BankAccount]
 
 func _ready() -> void:
 	if ProjectSettings.get_setting("application/config/isDebug"):
@@ -39,6 +41,8 @@ func load_data() -> void:
 	world_info_load.emit(world_info)
 	var file_systems = ComputerDB.get_all_computers_file_system()
 	file_systems_load.emit(file_systems)
+	bank_accounts = BankAccountsDB.get_bank_accounts()
+	bank_accounts_load.emit(bank_accounts)
 
 func refresh_password():
 	saved_password = PasswordsDB.get_password_dictionary()
