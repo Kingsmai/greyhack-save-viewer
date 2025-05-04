@@ -2,7 +2,7 @@
 
 ## Database implementation
 
-- [ ] Bank Accounts
+- [x] Bank Accounts
 - [ ] Coins
 - [x] Computer
 - [ ] CTFs

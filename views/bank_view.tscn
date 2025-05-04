@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ddhv4tidc6md1" path="res://views/bank_view.gd" id="1_ybdlu"]
 
-[node name="Bank" type="MarginContainer"]
+[node name="BankView" type="MarginContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

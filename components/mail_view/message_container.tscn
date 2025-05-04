@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://clks0c80w54uj"]
+
+[ext_resource type="Script" uid="uid://dl5ii0c7sjjqe" path="res://components/mail_view/message_container.gd" id="1_rthfl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_546f7"]
+outline_size = 2
+
+[node name="MessageContainer" type="PanelContainer"]
+script = ExtResource("1_rthfl")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="MessageTitleLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Message Title"
+label_settings = SubResource("LabelSettings_546f7")
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MessageContentRichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+text = "Message contents"
+fit_content = true
