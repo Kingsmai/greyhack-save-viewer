@@ -19,5 +19,7 @@ static func get_file_content_by_id(file_id: String) -> String:
 	var columns = ["Content"]
 	var query_result = SaveData.select_rows("Files", condition, columns)
 	if query_result.size() > 0:
-		result = JSON.stringify(query_result[0]["Content"], "\t", false)
+		if typeof(query_result[0]["Content"]) == TYPE_DICTIONARY:
+			result = JSON.stringify(query_result[0]["Content"], "\t", false)
+		result = query_result[0]["Content"]
 	return result

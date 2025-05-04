@@ -6,12 +6,12 @@
 - [ ] Coins
 - [x] Computer
 - [ ] CTFs
-- [ ] Files
-- [ ] InfoGen
+- [x] Files
+- [x] InfoGen
 - [ ] Logs
 - [ ] MailAccounts
 - [x] Map
-- [ ] Passwords
+- [x] Passwords
 - [ ] PlayerConns
 - [x] Players
 - [ ] SharedConns

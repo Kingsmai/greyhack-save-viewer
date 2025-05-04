@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cp1ioem18ac4l"]
+[gd_scene load_steps=9 format=3 uid="uid://cp1ioem18ac4l"]
 
 [ext_resource type="Script" uid="uid://bbnhgcd0ot2yv" path="res://scenes/main/main.gd" id="1_hyk8p"]
 [ext_resource type="PackedScene" uid="uid://busrn3xwht5qd" path="res://views/world_info_view.tscn" id="2_hujxm"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cj85ijijwv8lo" path="res://views/map_view.tscn" id="4_l3cfh"]
 [ext_resource type="PackedScene" uid="uid://ma4h301upe28" path="res://scenes/decipher_window/decipher_window.tscn" id="5_6q06x"]
 [ext_resource type="PackedScene" uid="uid://dpyglasm5c0qs" path="res://views/website_view.tscn" id="5_ow5a4"]
+[ext_resource type="PackedScene" uid="uid://cqs0oq6687w77" path="res://views/credentials_view.tscn" id="7_yyfjg"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -77,6 +78,9 @@ metadata/_tab_index = 3
 visible = false
 layout_mode = 2
 metadata/_tab_index = 4
+
+[node name="Credentials" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer" instance=ExtResource("7_yyfjg")]
+layout_mode = 2
 
 [node name="DecipherWindow" parent="." instance=ExtResource("5_6q06x")]
 unique_name_in_owner = true

@@ -28,5 +28,5 @@ func _on_world_info_loaded(world_data: WorldInfo) -> void:
 		for invoice_key in world_data.invoices[player_id]:
 			var invoice_container = INVOICE_CONTAINER.instantiate()
 			invoice_item_list.add_child(invoice_container)
-			invoice_container.set_invoice_contents(invoice_key, world_data.invoices[player_id][invoice_key])
+			invoice_container.set_invoice_contents(world_data.invoices[player_id][invoice_key])
 			invoice_container.size_flags_horizontal = Control.SIZE_EXPAND_FILL

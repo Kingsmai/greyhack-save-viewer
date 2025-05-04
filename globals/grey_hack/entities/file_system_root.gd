@@ -53,6 +53,35 @@ class FolderEntry:
 	var mission_id: String
 	var file_type: int
 	var is_default_content: bool
+	
+	func find_folder_by_path(path: String) -> FolderEntry:
+		var segments = path.split("/")
+		return _find_folder_recursive(folders, segments)
+	
+	func _find_folder_recursive(current_folders: Array[FolderEntry], segments: Array[String]) -> FolderEntry:
+		if segments.is_empty():
+			return null
+		for folder in current_folders:
+			if folder.name == segments[0]:
+				if segments.size() == 1:
+					return folder
+				else:
+					return _find_folder_recursive(folder.folders, segments.slice(1, segments.size()))
+		return null
+	
+	func find_file_by_path(path: String) -> FileEntry:
+		var segments = path.split("/")
+		var parent_dir_path = segments.slice(0, -1)
+		var file_name = segments[-1]
+		var parent_directory = self
+		if parent_dir_path.size() > 0:
+			parent_directory = _find_folder_recursive(folders, parent_dir_path)
+		if parent_directory == null:
+			return null
+		for file in parent_directory.files:
+			if file.name == file_name:
+				return file
+		return null
 
 static func load_file_system_from_json(data: Dictionary) -> FileSystemRoot:
 	if typeof(data) != TYPE_DICTIONARY:

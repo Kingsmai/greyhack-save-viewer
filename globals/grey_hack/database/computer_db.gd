@@ -62,4 +62,10 @@ static func get_computer_by_id(computer_id: String) -> Computer:
 	computer.users = User.load_users_from_json_array(record["Users"])
 	computer.config_os = record["ConfigOS"]
 	return computer
-	
+
+static func get_all_computers_file_system() -> Array[FileSystemRoot]:
+	var result: Array[FileSystemRoot] = []
+	var query_result = SaveData.select_rows("Computer", "", ["FileSystem"])
+	for row in query_result:
+		result.append(FileSystemRoot.load_file_system_from_json(row["FileSystem"]))
+	return result

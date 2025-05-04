@@ -11,7 +11,7 @@ class_name InvoiceContainer extends MarginContainer
 @onready var next_date_line_edit: LineEdit = %NextDateLineEdit
 @onready var public_ip_container: VBoxContainer = %PublicIpContainer
 
-func set_invoice_contents(invoice_key: String, invoice: Invoice) -> void:
+func set_invoice_contents(invoice: Invoice) -> void:
 	player_id_label.text = invoice.player_id
 	bank_account_label.text = invoice.bank_account
 	payment_id_line_edit.text = str(invoice.payment_id)

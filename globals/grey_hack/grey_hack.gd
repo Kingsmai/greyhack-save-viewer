@@ -6,6 +6,8 @@ signal map_load(map_data: Array[MapObject])
 signal web_pages_load(web_pages: Array[WebPage])
 signal world_info_load(world_info: WorldInfo)
 
+signal file_systems_load(file_systems: Array[FileSystemRoot])
+
 var player: Player
 var computers_metadata: Array[Computer]
 var map_data: Array[MapObject]
@@ -35,6 +37,8 @@ func load_data() -> void:
 	web_pages_load.emit(web_pages)
 	world_info = InfoGenDB.load_info_gen_data()
 	world_info_load.emit(world_info)
+	var file_systems = ComputerDB.get_all_computers_file_system()
+	file_systems_load.emit(file_systems)
 
 func refresh_password():
 	saved_password = PasswordsDB.get_password_dictionary()
