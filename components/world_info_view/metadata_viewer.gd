@@ -24,6 +24,9 @@ func _on_world_info_loaded(world_data: WorldInfo) -> void:
 	money_line_edit.text = str(world_data.global_money.money)
 	last_money_line_edit.text = str(world_data.global_money.last_money)
 	last_year_withdraw_line_edit.text = str(world_data.global_money.last_year_withdraw)
+	for child in invoice_item_list.get_children():
+		invoice_item_list.remove_child(child)
+		child.queue_free()
 	for player_id in world_data.invoices:
 		for invoice_key in world_data.invoices[player_id]:
 			var invoice_container = INVOICE_CONTAINER.instantiate()

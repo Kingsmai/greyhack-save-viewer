@@ -6,9 +6,9 @@ var is_sending: bool
 var serial_attach: FileSystemRoot.FileEntry
 
 static func from_dict(data: Dictionary) -> Message:
-	var message = Message.new()
-	message.title = data["titulo"]
-	message.message = data["mensaje"]
-	message.is_sending = data["isSending"]
-	#message.serial_attach = JSON.parse_string(data["serialAttach"])
-	return message
+	var msg = Message.new()
+	msg.title = data["titulo"]
+	msg.message = data["mensaje"]
+	msg.is_sending = data["isSending"]
+	#msg.serial_attach = JSON.parse_string(data["serialAttach"])
+	return msg

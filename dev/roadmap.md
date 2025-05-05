@@ -9,7 +9,7 @@
 - [x] Files
 - [x] InfoGen
 - [ ] Logs
-- [ ] MailAccounts
+- [x] MailAccounts
 - [x] Map
 - [x] Passwords
 - [ ] PlayerConns
