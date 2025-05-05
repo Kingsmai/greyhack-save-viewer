@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://crepkb1l6l5uv"]
+[gd_scene load_steps=7 format=3 uid="uid://crepkb1l6l5uv"]
 
 [ext_resource type="Script" uid="uid://7evhf6t7q0hw" path="res://components/computers_view/computer_detail_tab.gd" id="1_7opic"]
 [ext_resource type="PackedScene" uid="uid://1jsusc1jpfnd" path="res://components/computers_view/file_system_view.tscn" id="2_frgch"]
 [ext_resource type="PackedScene" uid="uid://lcm4nr6oh6b8" path="res://components/computers_view/users_view.tscn" id="3_ptlui"]
 [ext_resource type="PackedScene" uid="uid://dmbrlsl2lwjd8" path="res://components/computers_view/hardware_view.tscn" id="4_o71sy"]
 [ext_resource type="PackedScene" uid="uid://d5vmh254mehi" path="res://components/computers_view/config_os_view.tscn" id="5_sbhcf"]
+[ext_resource type="PackedScene" uid="uid://cp406k58m6ie0" path="res://components/computers_view/log_viewer_view.tscn" id="6_dvyvg"]
 
 [node name="ComputerDetailTab" type="MarginContainer"]
 anchors_preset = 15
@@ -75,6 +76,11 @@ visible = false
 layout_mode = 2
 
 [node name="ConfigOS" parent="VBoxContainer/TabContainer" instance=ExtResource("5_sbhcf")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="LogViewer" parent="VBoxContainer/TabContainer" instance=ExtResource("6_dvyvg")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2

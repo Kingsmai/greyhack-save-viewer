@@ -15,6 +15,7 @@ class_name ComputerDetailTab extends MarginContainer
 @onready var users: UsersView = %Users
 @onready var hardware: HardwareView = %Hardware
 @onready var config_os: ConfigOsView = %ConfigOS
+@onready var log_viewer: LogViewerView = %LogViewer
 
 var current_computer: Computer = null
 
@@ -42,6 +43,7 @@ func _set_flags():
 
 func fetch_and_load_computer_data(computer_id: String) -> void:
 	current_computer = ComputerDB.get_computer_by_id(computer_id)
+	var logs = LogDB.get_log_contents_by_computer_id(computer_id)
 	if current_computer != null:
 		_set_flags()
 		_set_tab_title(computer_id)
@@ -49,6 +51,7 @@ func fetch_and_load_computer_data(computer_id: String) -> void:
 		users.populate_computer_users(current_computer.users)
 		hardware.set_hardware_data(current_computer.hardware)
 		config_os.set_config_os_data(current_computer.config_os)
+		log_viewer.set_log_contents(logs)
 	else:
 		print_debug("Computer not found!")
 	pass
