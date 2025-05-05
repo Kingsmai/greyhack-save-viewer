@@ -8,7 +8,7 @@
 - [ ] CTFs
 - [x] Files
 - [x] InfoGen
-- [ ] Logs
+- [x] Logs
 - [x] MailAccounts
 - [x] Map
 - [x] Passwords
@@ -118,7 +118,13 @@
 - [ ] **Huge problem**
   - [ ] Config OS
     - [ ] Analysis for computer ConfigOS
+      - [ ] http://home-server.local:40178/j/gSzcIvv0m5xi
+      - [ ] http://home-server.local:40178/j/KJET5GTcFb6X
     - [ ] Analysis for router Config OS
+      - [ ] http://home-server.local:40178/j/LBvYS7HsQi6H
+      - [ ] http://home-server.local:40178/j/SPymj8xV08x2
+    - [ ] Analysis for player Config OS
+      - [ ] http://home-server.local:40178/j/Mbiy7OzcAVyL
     - [ ] Is there any other Config OS?
 
 ### Computer Improvements
