@@ -1,0 +1,5 @@
+if typeof(result) == "shell" then
+	result.start_terminal
+else
+	print("Error: expected shell, obtained: " + result)
+end if

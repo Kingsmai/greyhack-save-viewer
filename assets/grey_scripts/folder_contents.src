@@ -1,0 +1,14 @@
+print("Obtained access to " + result.path +". Listing files...")
+files = result.get_files
+for file in files
+	print("File: " + file.name + ". Printing content...")
+	if not file.has_permission("r") then
+		print("failed. Permission denied.")
+
+	else if file.is_binary then
+		print("failed. Binary file.")
+
+	else
+		print(file.get_content)
+	end if
+end for

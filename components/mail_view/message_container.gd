@@ -9,7 +9,6 @@ class_name MessageContainer extends PanelContainer
 
 func set_message(message: Message):
 	message_title_label.text = message.title
-	print(message.message)
 	message_content_rich_text_label.text = Utils.gh_html_to_bbcode(message.message)
 	if message.is_sending:
 		var sending_stylebox = StyleBoxFlat.new()

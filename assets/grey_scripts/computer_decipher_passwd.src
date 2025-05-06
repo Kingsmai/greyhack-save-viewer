@@ -1,0 +1,29 @@
+cryptools = include_lib("/lib/crypto.so")
+if not cryptools then
+	cryptools = include_lib(current_path + "/crypto.so")
+end if
+if not cryptools then exit("Error: Can't find crypto.so library in the /lib path or the current folder")
+
+GetPassword = function(userPass)
+	if userPass.len != 2 then exit("decipher: " + file.path + " wrong syntax")
+	password = cryptools.decipher(userPass[1])
+	return password
+end function
+
+typeObject = typeof(result)
+if typeObject != "computer" then exit("Error: expected computer, obtained " + typeObject)
+file = result.File("/etc/passwd")
+if not file then exit("Error: file /etc/passwd not found")
+if not file.has_permission("r") then exit("Error: can't read /etc/passwd. Permission denied.")
+if file.is_binary then exit("Error: invalid /etc/passwd file found.")
+listUsers = file.get_content.split("\n")
+for line in listUsers
+	userPass = line.split(":")
+	print "Deciphering user " + userPass[0] + "..."
+	password = GetPassword(userPass)
+	if not password then
+		print "Nothing found..."
+	else
+		print "=> " + password
+	end if
+end for

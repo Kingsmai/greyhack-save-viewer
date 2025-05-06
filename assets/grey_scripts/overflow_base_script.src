@@ -1,0 +1,2 @@
+result = metaLib.overflow(<MEM_ZONE>, <UNSEC_VALUE>)
+if not result then exit("Program ended")

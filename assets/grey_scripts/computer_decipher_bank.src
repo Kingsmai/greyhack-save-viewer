@@ -1,0 +1,33 @@
+cryptools = include_lib("/lib/crypto.so")
+if not cryptools then
+	cryptools = include_lib(current_path + "/crypto.so")
+end if
+if not cryptools then exit("Error: Can't find crypto.so library in the /lib path or the current folder")
+
+GetPassword = function(userPass)
+	if userPass.len != 2 then exit("decipher: wrong syntax")
+	password = cryptools.decipher(userPass[1])
+	return password
+end function
+
+typeObject = typeof(result)
+if(typeObject != "computer") then exit("Error: expected computer, obtained " + typeObject)
+homeFolder = result.File("/home")
+if not homeFolder then exit("Error: /home folder not found")
+userFolders = homeFolder.get_folders
+found = false
+for userFolder in userFolders
+	bankFile = result.File("/home/" + userFolder.name + "/Config/Bank.txt")
+	if not bankFile then continue
+	if not bankFile.has_permission("r") then exit("Error: can't read file contents. Permission deniend")
+	userPass = bankFile.get_content.split(":")
+	print("Deciphering bank password for user: " + userFolder.name)
+	password = GetPassword(userPass)
+	if not password then 
+		print("Nothing found...")
+	else
+		print("Bank account: " + userPass[0] +"\nBank Password: " + password)
+		found = true
+	end if
+end for
+if not found then print("No files found")

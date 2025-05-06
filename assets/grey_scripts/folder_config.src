@@ -1,0 +1,3 @@
+if typeof(result) != "file" then exit("Error: expected file, obtained: " + result)
+if not result.is_folder then exit("Error: expected folder, obtained file: " + result.path)
+if not result.has_permission("r") then exit("Error: can't access to " + result.path + ". Permission denied." )

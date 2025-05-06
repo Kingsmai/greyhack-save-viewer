@@ -1,0 +1,124 @@
+[gd_scene load_steps=4 format=3 uid="uid://8at314jb8jkf"]
+
+[ext_resource type="Script" uid="uid://dwqpnv456sgce" path="res://views/script_chef_view.gd" id="1_2mf64"]
+[ext_resource type="ButtonGroup" uid="uid://dtegu4p4dn710" path="res://resources/folder_hack_button_group.tres" id="2_7dw8i"]
+[ext_resource type="ButtonGroup" uid="uid://yfasws6o0eab" path="res://resources/computer_hack_button_group.tres" id="2_a71l8"]
+
+[node name="ScriptChef" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2mf64")
+metadata/_tab_index = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+text = "Select Library"
+
+[node name="LibraryOptionButton" type="OptionButton" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LibraryDetailTree" type="Tree" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Computer Hacks"
+
+[node name="DecipherPasswdCheckBox" type="CheckBox" parent="VBoxContainer/HBoxContainer2/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+button_group = ExtResource("2_a71l8")
+text = "Decipher Passwd"
+
+[node name="DecipherBankCheckBox" type="CheckBox" parent="VBoxContainer/HBoxContainer2/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+button_group = ExtResource("2_a71l8")
+text = "Decipher Bank"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/VBoxContainer2"]
+layout_mode = 2
+text = "Folder Hack"
+
+[node name="FolderContentCheckBox" type="CheckBox" parent="VBoxContainer/HBoxContainer2/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+button_group = ExtResource("2_7dw8i")
+text = "Content"
+
+[node name="FolderEtcPasswdCheckBox" type="CheckBox" parent="VBoxContainer/HBoxContainer2/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+button_group = ExtResource("2_7dw8i")
+text = "Etc Passwd"
+
+[node name="FolderMailPasswdCheckBox" type="CheckBox" parent="VBoxContainer/HBoxContainer2/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+button_group = ExtResource("2_7dw8i")
+text = "Mail Passwd"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/VBoxContainer3"]
+layout_mode = 2
+text = "Password Hack"
+
+[node name="PasswordResetLineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer2/VBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+placeholder_text = "New Password"
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/VBoxContainer4"]
+layout_mode = 2
+text = "Source code output, click to copy."
+
+[node name="OutputCodeEdit" type="CodeEdit" parent="VBoxContainer/HBoxContainer2/VBoxContainer4"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+wrap_mode = 1
+
+[node name="SuggestNameLineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer2/VBoxContainer4"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="BakeButton" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Bake"

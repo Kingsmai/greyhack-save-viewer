@@ -100,12 +100,18 @@ static func gh_html_to_bbcode(html: String) -> String:
 
 	# <b> -> [b]
 	bb = bb.replace("<b>", "[b]").replace("</b>", "[/b]")
+	bb = bb.replace("<u>", "[u]").replace("</u>", "[/u]")
 
 	# <color=#xxxxxx> -> [color=#xxxxxx]
 	var color_regex = RegEx.new()
-	color_regex.compile("<color=(#[A-Fa-f0-9]+)>")
-	bb = color_regex.sub(bb, "[color=\\1]", true)
+	color_regex.compile("<color=(#[A-Fa-f0-9]+|[a-zA-Z]+)>")
+	bb = color_regex.sub(bb, "[color=$1]", true)
 	bb = bb.replace("</color>", "[/color]")
+	
+	var link_regex = RegEx.new()
+	link_regex.compile("<link=(\"[A-Z_]+\")>")
+	bb = link_regex.sub(bb, "[url=$1]", true)
+	bb = bb.replace("</link>", "[/url]")
 
 	# 换行处理：保留原始换行符
 	# 如果是 <br> 或 <br />，你也可以加上

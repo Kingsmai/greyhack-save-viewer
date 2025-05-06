@@ -1,0 +1,6 @@
+newPass = <NEW_PASSWORD>
+if newPass == ""
+	newPass = user_input("Enter new password: ")
+end if
+result = metaLib.overflow(<MEM_ZONE>, <UNSEC_VALUE>, newPass)
+if not result then exit("Program ended")

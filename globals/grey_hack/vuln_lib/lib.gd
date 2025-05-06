@@ -9,7 +9,7 @@ var auto_patch_time_str: String:
 		return Utils.iso_datetime_to_string(auto_patch_time)
 var num_patches: int
 var version: LibVersion
-var memory_zone_list: Dictionary  # key: String (memory address), value: MemoryZone
+var memory_zone_list: Dictionary[String, MemoryZone]  # key: String (memory address), value: MemoryZone
 
 static func from_dict(dict: Dictionary) -> Lib:
 	var obj = Lib.new()
@@ -19,7 +19,7 @@ static func from_dict(dict: Dictionary) -> Lib:
 	obj.num_patches = dict.get("numPatches", 0)
 	obj.version = LibVersion.from_dict(dict.get("version", {}))
 
-	obj.memory_zone_list = {}
+	obj.memory_zone_list = {} as Dictionary[String, MemoryZone]
 	for addr in dict.get("listaZonaMem", {}).keys():
 		var zone_dict = dict["listaZonaMem"][addr]
 		obj.memory_zone_list[addr] = MemoryZone.from_dict(zone_dict)

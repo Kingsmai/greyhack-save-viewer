@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cp1ioem18ac4l"]
+[gd_scene load_steps=12 format=3 uid="uid://cp1ioem18ac4l"]
 
 [ext_resource type="Script" uid="uid://bbnhgcd0ot2yv" path="res://scenes/main/main.gd" id="1_hyk8p"]
 [ext_resource type="PackedScene" uid="uid://busrn3xwht5qd" path="res://views/world_info_view.tscn" id="2_hujxm"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cqs0oq6687w77" path="res://views/credentials_view.tscn" id="7_yyfjg"]
 [ext_resource type="PackedScene" uid="uid://btbl6lsbg8363" path="res://views/bank_view.tscn" id="8_b1x3f"]
 [ext_resource type="PackedScene" uid="uid://ckgxqwl2oecmo" path="res://views/mail_view.tscn" id="9_a8run"]
+[ext_resource type="PackedScene" uid="uid://8at314jb8jkf" path="res://views/script_chef_view.tscn" id="10_ouso4"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -56,9 +57,10 @@ text = "Refresh (F5)"
 [node name="TabContainer" type="TabContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-current_tab = 0
+current_tab = 8
 
 [node name="WorldInfo" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer" instance=ExtResource("2_hujxm")]
+visible = false
 layout_mode = 2
 
 [node name="Player" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer" instance=ExtResource("2_iuonh")]
@@ -91,6 +93,9 @@ layout_mode = 2
 
 [node name="Mail" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer" instance=ExtResource("9_a8run")]
 visible = false
+layout_mode = 2
+
+[node name="ScriptChef" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer" instance=ExtResource("10_ouso4")]
 layout_mode = 2
 
 [node name="DecipherWindow" parent="." instance=ExtResource("5_6q06x")]
