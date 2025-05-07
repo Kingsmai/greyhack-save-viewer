@@ -189,8 +189,8 @@ func _set_user_controls_states(mode: HackResultType.Type) -> void:
 
 func _on_library_detail_tree_item_selected() -> void:
 	var current_selected = library_detail_tree.get_selected()
-	var lib: Lib = current_selected.get_metadata(0)
-	var zone: MemoryZone = current_selected.get_metadata(1)
+	# var lib: Lib = current_selected.get_metadata(0)
+	# var zone: MemoryZone = current_selected.get_metadata(1)
 	var vuln: Vulnerability = current_selected.get_metadata(2)
 	_set_user_controls_states(vuln.helper_hack_result.hack_result)
 
@@ -206,10 +206,23 @@ func _on_bake_button_pressed() -> void:
 	var new_password = password_reset_line_edit.text
 	var source_code = ExploitBuilder.build_exploit(lib, zone, vuln, selected_computer_hack, selected_folder_hack, new_password)
 	output_code_edit.text = source_code
+	var hack_result_str: String
+	match  vuln.helper_hack_result.hack_result:
+		HackResultType.Type.RANDOM_FOLDER:
+			match selected_folder_hack:
+				0: hack_result_str = "folder_contents"
+				1: hack_result_str = "folder_etc_passwd"
+				2: hack_result_str = "folder_mail_passwd"
+		HackResultType.Type.COMPUTER:
+			match selected_computer_hack:
+				0: hack_result_str = "computer_dec_passwd"
+				1: hack_result_str = "computer_dec_bank"
+		_: hack_result_str = HackResultType.translate(vuln.helper_hack_result.hack_result).replace(" ", "").to_lower()
+			
 	var suggested_name = "%s-%s-%s-%s" % [
 		LibraryType.translate(lib.id_lib).replace("_", "").replace(".so", ""),
 		"".join(lib.version.version),
-		HackResultType.translate(vuln.helper_hack_result.hack_result).replace(" ", "").to_lower(),
+		hack_result_str,
 		vuln.helper_hack_result.user[0]
 	]
 	suggest_name_line_edit.text = suggested_name
