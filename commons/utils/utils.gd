@@ -118,3 +118,19 @@ static func gh_html_to_bbcode(html: String) -> String:
 	bb = bb.replace("<br>", "[br]").replace("<br/>", "[br]").replace("<br />", "[br]")
 
 	return bb
+
+## 深拷贝函数
+static func deep_copy(original) -> Variant:
+	if typeof(original) in [TYPE_ARRAY, TYPE_DICTIONARY]:
+		var copy
+		if typeof(original) == TYPE_ARRAY:
+			copy = []
+			for item in original:
+				copy.append(deep_copy(item))
+		elif typeof(original) == TYPE_DICTIONARY:
+			copy = {}
+			for key in original.keys():
+				copy[key] = deep_copy(original[key])
+		return copy
+	else:
+		return original

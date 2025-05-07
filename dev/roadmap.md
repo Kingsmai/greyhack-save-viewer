@@ -34,6 +34,7 @@
   - [x] Last Connection
   - [x] Bank account
   - [x] Email address
+  
 - [x] Player Storage
   - [x] List with computers
     - [x] Different Categories
@@ -45,20 +46,41 @@
       - [x] PSU List
       - [x] Net Devices List
     - [x] Each item's detail
+  
 - [ ] Mission List
   - [ ] Target User
+  
   - [ ] Any User? Haven't know what this mean (Maybe for "Getting Credentials")
+  
   - [ ] Type Mission, Need to figure it out every enum's Meaning
+  
   - [ ] Target Computer ID
+  
   - [ ] Reputation (Maybe it is a positive & negative value? since it was `1`)
+  
   - [ ] Karma (Same as above)
+  
+  - [ ] ```json
+    {"missions":{"2f338090-ba02-4caf-a6ce-258a66db1fca":{"binFileID":"0083a88f-dbf1-4f1f-8df8-e6150be52ffd","typeMission":5,"targetComputerID":"34.172.111.167:1605612966","reputation":1,"karma":1}}}
+    ```
+  
 - [x] Selling Hardware Shop (List)
+
 - [ ] **No data yet**
   - [x] Wallet ID (Got no data yet, maybe need rep of 2, **Temp write at player detail part**)
+  
   - [x] Wallet Password (Got no data yet, **Temp write at player detail part**)
+  
   - [ ] Stock Info
+  
   - [x] Login Data???(**Temp write at player detail part, as a code block**)
+  
   - [ ] Zero Day Request
+  
+    - [ ] ```json
+      {"zeroDayRequest":"0001-01-01T00:00:00","debugToolsLoginAttempts":0,"soloAttemptsEmail":0,"soloMailReceived":false,"failedUnitTesting":false,"debugToolsCreds":[]}
+      ```
+  
   - [ ] Bank Traces (Think it is the 10s ~ 15s temp data, not useful)
 
 ### Player Viewer Improvement

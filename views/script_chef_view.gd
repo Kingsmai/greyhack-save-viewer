@@ -30,7 +30,7 @@ func _ready() -> void:
 	folder_hack_button_group = folder_content_check_box.button_group
 	computer_hack_button_group.get_buttons()[0].button_pressed = true
 	folder_hack_button_group.get_buttons()[0].button_pressed = true
-	_set_user_controls_states(HackResultType.Type.SHELL)
+	_set_user_controls_states(null)
 	output_code_edit.editable = false
 	output_code_edit.focus_entered.connect(func(): DisplayServer.clipboard_set(output_code_edit.text))
 	suggest_name_line_edit.editable = false
@@ -180,21 +180,33 @@ func _get_user_color(user: String) -> Color:
 		"guest": return Color.RED
 		_: return Color.WHITE
 
-func _set_user_controls_states(mode: HackResultType.Type) -> void:
+func _set_user_controls_states(helper_hack_result: HelperHackResult) -> void:
+	var mode = helper_hack_result.hack_result if helper_hack_result != null else HackResultType.Type.SHELL
 	for btn in folder_hack_button_group.get_buttons():
+		folder_content_check_box.text = "Print %s Contents" % helper_hack_result.random_path if helper_hack_result != null else ""
 		btn.disabled = mode != HackResultType.Type.RANDOM_FOLDER
 	for btn in computer_hack_button_group.get_buttons():
 		btn.disabled = mode != HackResultType.Type.COMPUTER
 	password_reset_line_edit.editable = mode == HackResultType.Type.CHANGE_PASS
 
 func _on_library_detail_tree_item_selected() -> void:
+	output_code_edit.text = ""
+	suggest_name_line_edit.text = ""
 	var current_selected = library_detail_tree.get_selected()
-	# var lib: Lib = current_selected.get_metadata(0)
-	# var zone: MemoryZone = current_selected.get_metadata(1)
 	var vuln: Vulnerability = current_selected.get_metadata(2)
-	_set_user_controls_states(vuln.helper_hack_result.hack_result)
+	if vuln == null: return
+	_set_user_controls_states(vuln.helper_hack_result)
+	if vuln.helper_hack_result.hack_result not in [
+		HackResultType.Type.RANDOM_FOLDER,
+		HackResultType.Type.CHANGE_PASS,
+		HackResultType.Type.COMPUTER
+	]:
+		_bake_script()
 
 func _on_bake_button_pressed() -> void:
+	_bake_script()
+
+func _bake_script() -> void:
 	var current_selected = library_detail_tree.get_selected()
 	if current_selected == null:
 		return

@@ -57,10 +57,9 @@ text = "Refresh (F5)"
 [node name="TabContainer" type="TabContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-current_tab = 8
+current_tab = 0
 
 [node name="WorldInfo" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer" instance=ExtResource("2_hujxm")]
-visible = false
 layout_mode = 2
 
 [node name="Player" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer" instance=ExtResource("2_iuonh")]
@@ -96,6 +95,7 @@ visible = false
 layout_mode = 2
 
 [node name="ScriptChef" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer" instance=ExtResource("10_ouso4")]
+visible = false
 layout_mode = 2
 
 [node name="DecipherWindow" parent="." instance=ExtResource("5_6q06x")]

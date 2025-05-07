@@ -18,14 +18,14 @@ var local_id: String:
 		else:
 			return computer_id
 
+var type: WebTypeTranslator.Type = WebTypeTranslator.Type.Unknown
+
 var is_unique: bool
 	
 var is_router: bool = false
 var is_player: bool = false
 var is_rented: bool = false
 var is_ctf: bool = false
-
-var type: WebTypeTranslator.Type = WebTypeTranslator.Type.Unknown
 
 var file_system: FileSystemRoot
 var hardware: HardwareProfile

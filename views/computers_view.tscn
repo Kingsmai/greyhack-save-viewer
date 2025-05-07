@@ -19,11 +19,26 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="ComputersTree" type="Tree" parent="VBoxContainer/HBoxContainer"]
-unique_name_in_owner = true
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.25
+
+[node name="GroupByTypeCheckButton" type="CheckButton" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Group by Type"
+
+[node name="SortByIpCheckButton" type="CheckButton" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Sort by IP"
+
+[node name="ComputersTree" type="Tree" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="ComputerTabContainer" type="TabContainer" parent="VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
