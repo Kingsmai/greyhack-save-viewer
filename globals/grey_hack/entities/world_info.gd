@@ -22,7 +22,7 @@ var all_libs: Dictionary[String, PackedStringArray]
 ## Payment target: BANK / RENTED
 var invoices: Dictionary[String, Dictionary]
 
-var global_money: GlobalMoney
+var global_money: GlobalMoney = GlobalMoney.new()
 
 static func from_dict(dict: Dictionary) -> WorldInfo:
 	var world_info = WorldInfo.new()
@@ -44,5 +44,6 @@ static func from_dict(dict: Dictionary) -> WorldInfo:
 		world_info.invoices[player_id] = {}
 		for payment_target in dict["Invoices"][player_id]:
 			world_info.invoices[player_id][payment_target] = Invoice.from_dict(dict["Invoices"][player_id][payment_target])
-	world_info.global_money = GlobalMoney.from_dict(dict["GlobalMoney"])
+	if dict["GlobalMoney"] != null:
+		world_info.global_money = GlobalMoney.from_dict(dict["GlobalMoney"])
 	return world_info
