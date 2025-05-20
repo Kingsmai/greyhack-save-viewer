@@ -49,4 +49,28 @@ static func translate(type: Type) -> String:
 		_                       : rs = "unknown"
 	return rs
 
-		
+static func translate_for_exploit(type: Type) -> String:
+	var rs = ""
+	match type:
+		Type.LIB_SSH            : rs = "e_ssh"
+		Type.LIB_FTP            : rs = "e_ftp"
+		Type.LIB_HTTP           : rs = "e_http"
+		Type.LIB_SQL            : rs = "e_sql"
+		Type.LIB_SMTP           : rs = "e_smtp"
+		Type.LIB_CHAT           : rs = "e_chat"
+		Type.LIB_CAM            : rs = "e_cam"
+		Type.LIB_RSHELL         : rs = "e_rsh"
+		Type.LIB_REPOSITORY     : rs = "e_repo"
+		Type.BLOCKCHAIN         : rs = "e_bchain"
+		Type.LIB_ADB            : rs = "e_adb"
+		Type.LIB_SMART_APPLIANCE: rs = "e_smap"           # smart appliance 缩写
+		Type.KERNEL_ROUTER      : rs = "e_kroute"         # kernel router
+		Type.APT_CLIENT         : rs = "e_aptcli"
+		Type.METAXPLOIT         : rs = "e_mxp"            # metaxploit 缩写
+		Type.CRYPTO             : rs = "e_crypto"
+		Type.KERNEL_MODULE      : rs = "e_kmod"
+		Type.INIT               : rs = "e_init"
+		Type.NET                : rs = "e_net"
+		Type.LIB_TRAFFIC_NET    : rs = "e_trafnet"
+		_                       : rs = "e_unknown"
+	return rs

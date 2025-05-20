@@ -231,10 +231,11 @@ func _bake_script() -> void:
 			match selected_computer_hack:
 				0: hack_result_str = "computer_dec_passwd"
 				1: hack_result_str = "computer_dec_bank"
+				2: hack_result_str = "computer_dec_mail"
 		_: hack_result_str = HackResultType.translate(vuln.helper_hack_result.hack_result).replace(" ", "").to_lower()
 			
 	var suggested_name = "%s-%s-%s-%s" % [
-		LibraryType.translate(lib.id_lib).replace("_", "").replace(".so", ""),
+		LibraryType.translate_for_exploit(lib.id_lib).replace("_", "").replace(".so", ""),
 		"".join(lib.version.version),
 		hack_result_str,
 		vuln.helper_hack_result.user[0]

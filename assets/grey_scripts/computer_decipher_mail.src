@@ -17,16 +17,16 @@ if not homeFolder then exit("Error: /home folder not found")
 userFolders = homeFolder.get_folders
 found = false
 for userFolder in userFolders
-	ban`File = result.File("/home/" + userFolder.name + "/Config/Bank.txt")
-	if not bankFile then continue
-	if not bankFile.has_permission("r") then exit("Error: can't read file contents. Permission deniend")
-	userPass = bankFile.get_content.split(":")
-	print("Deciphering bank password for user: " + userFolder.name)
+	mailFile = result.File("/home/" + userFolder.name + "/Config/Mail.txt")
+	if not mailFile then continue
+	if not mailFile.has_permission("r") then exit("Error: can't read file contents. Permission deniend")
+	userPass = mailFile.get_content.split(":")
+	print("Deciphering mail password for user: " + userFolder.name)
 	password = GetPassword(userPass)
 	if not password then 
 		print("Nothing found...")
 	else
-		print("Bank account: " + userPass[0] +"\nBank Password: " + password)
+		print("Mail account: " + userPass[0] +"\nMail Password: " + password)
 		found = true
 	end if
 end for
