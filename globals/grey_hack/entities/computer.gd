@@ -30,4 +30,4 @@ var is_ctf: bool = false
 var file_system: FileSystemRoot
 var hardware: HardwareProfile
 var users: Array[User]
-var config_os: Dictionary
+var config_os: ConfigOS

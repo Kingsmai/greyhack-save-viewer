@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://1jsusc1jpfnd" path="res://components/computers_view/file_system_view.tscn" id="2_frgch"]
 [ext_resource type="PackedScene" uid="uid://lcm4nr6oh6b8" path="res://components/computers_view/users_view.tscn" id="3_ptlui"]
 [ext_resource type="PackedScene" uid="uid://dmbrlsl2lwjd8" path="res://components/computers_view/hardware_view.tscn" id="4_o71sy"]
-[ext_resource type="PackedScene" uid="uid://d5vmh254mehi" path="res://components/computers_view/config_os_view.tscn" id="5_sbhcf"]
+[ext_resource type="PackedScene" uid="uid://d5vmh254mehi" path="res://components/computers_view/config_os/config_os_view.tscn" id="5_sbhcf"]
 [ext_resource type="PackedScene" uid="uid://cp406k58m6ie0" path="res://components/computers_view/log_viewer_view.tscn" id="6_dvyvg"]
 
 [node name="ComputerDetailTab" type="MarginContainer"]
@@ -61,24 +61,28 @@ size_flags_vertical = 3
 tab_alignment = 1
 current_tab = 0
 
-[node name="FileSystem" parent="VBoxContainer/TabContainer" instance=ExtResource("2_frgch")]
+[node name="ConfigOS" parent="VBoxContainer/TabContainer" instance=ExtResource("5_sbhcf")]
 unique_name_in_owner = true
 layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="FileSystem" parent="VBoxContainer/TabContainer" instance=ExtResource("2_frgch")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
 
 [node name="Users" parent="VBoxContainer/TabContainer" instance=ExtResource("3_ptlui")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
+metadata/_tab_index = 2
 
 [node name="Hardware" parent="VBoxContainer/TabContainer" instance=ExtResource("4_o71sy")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
-
-[node name="ConfigOS" parent="VBoxContainer/TabContainer" instance=ExtResource("5_sbhcf")]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
+metadata/_tab_index = 3
 
 [node name="LogViewer" parent="VBoxContainer/TabContainer" instance=ExtResource("6_dvyvg")]
 unique_name_in_owner = true

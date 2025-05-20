@@ -1,0 +1,43 @@
+# Network Lan
+
+## Root Values
+
+- String
+  - Player owner ID
+  - public Ip
+  - traffic credentials
+- Boolean
+  - disabled network - rental pc is disabled due to no payment
+  - mission created
+- Int
+  - seed
+  - max num workers
+  - max stocks
+  - net speed
+- Enum
+  - type place - kinda of type?
+- Dictionary
+  - **router device**
+  - Npc User names
+    - Simple `{netID: array[username]}` -> PackedStringArray
+  - user bank ids
+    - Simple `{netID: array[bank_account]}` -> PackedStringArray
+  - npc infos
+    - **Complex** `{npcName: npc_details}`
+  - admin info
+    - **Complex** `{npc_details}`
+  - smart Phones
+    - Simple `{npcName: Phone_netId}`
+  - mission
+    - **Complex** `{local_ip: {missionPart: array[DifferentStructureMissionDetail]}}`
+- Array
+  - idx Public IPs
+    - Array with String
+  - idx Local IPs
+    - Array with String
+  - idx Npcs
+    - Array with *simple_npc_detail*
+  - pref records
+  - zero day npc rumors
+- Unknown
+  - helper Accident

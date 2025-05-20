@@ -60,7 +60,7 @@ static func get_computer_by_id(computer_id: String) -> Computer:
 	computer.file_system = FileSystemRoot.load_file_system_from_json(record["FileSystem"])
 	computer.hardware = HardwareProfile.load_hardware_from_json(record["Hardware"])
 	computer.users = User.load_users_from_json_array(record["Users"])
-	computer.config_os = record["ConfigOS"]
+	computer.config_os = ConfigOS.from_dict(record["ConfigOS"])
 	return computer
 
 static func get_all_computers_file_system() -> Array[FileSystemRoot]:

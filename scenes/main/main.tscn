@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cp1ioem18ac4l"]
+[gd_scene load_steps=13 format=3 uid="uid://cp1ioem18ac4l"]
 
 [ext_resource type="Script" uid="uid://bbnhgcd0ot2yv" path="res://scenes/main/main.gd" id="1_hyk8p"]
 [ext_resource type="PackedScene" uid="uid://busrn3xwht5qd" path="res://views/world_info_view.tscn" id="2_hujxm"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://btbl6lsbg8363" path="res://views/bank_view.tscn" id="8_b1x3f"]
 [ext_resource type="PackedScene" uid="uid://ckgxqwl2oecmo" path="res://views/mail_view.tscn" id="9_a8run"]
 [ext_resource type="PackedScene" uid="uid://8at314jb8jkf" path="res://views/script_chef_view.tscn" id="10_ouso4"]
+[ext_resource type="PackedScene" uid="uid://nat0nt4123d4" path="res://views/hack_tools_view.tscn" id="11_blune"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -95,6 +96,10 @@ visible = false
 layout_mode = 2
 
 [node name="ScriptChef" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer" instance=ExtResource("10_ouso4")]
+visible = false
+layout_mode = 2
+
+[node name="HackTools" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer" instance=ExtResource("11_blune")]
 visible = false
 layout_mode = 2
 

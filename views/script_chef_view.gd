@@ -106,8 +106,10 @@ func _add_exploit_entry(parent: TreeItem, lib: Lib, zone: MemoryZone, vuln: Vuln
 	item.set_metadata(1, zone)
 	item.set_metadata(2, vuln)
 	item.set_text(0, zone.address)
+	item.set_editable(0, true)
 	var result = vuln.helper_hack_result
 	item.set_text(1, vuln.unsec_value)
+	item.set_editable(1, true)
 	_set_remote_local_colors(item, vuln)
 	item.set_text(2, HackResultType.translate(result.hack_result))
 	item.set_text(3, result.user)

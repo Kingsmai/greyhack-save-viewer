@@ -50,7 +50,7 @@ func fetch_and_load_computer_data(computer_id: String) -> void:
 		file_system.populate_file_system(current_computer.file_system)
 		users.populate_computer_users(current_computer.users)
 		hardware.set_hardware_data(current_computer.hardware)
-		config_os.set_config_os_data(current_computer.config_os)
+		config_os.set_config_os_data(current_computer.config_os)		
 		log_viewer.set_log_contents(logs)
 	else:
 		print_debug("Computer not found!")
