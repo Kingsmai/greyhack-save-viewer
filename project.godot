@@ -22,6 +22,7 @@ config/debugSaveFileLocation="C:\\Softwares\\Grey Hack\\Grey Hack_Data\\GreyHack
 SaveDataV1="*res://globals/save_data/save_data.gd"
 SaveData="*res://globals/save_data_v2/save_data_v2.gd"
 GreyHack="*res://globals/grey_hack/grey_hack.gd"
+NpcViewerWindow="*res://scenes/npc_viewer_window/npc_viewer_window.tscn"
 
 [display]
 

@@ -1,0 +1,115 @@
+[gd_scene load_steps=2 format=3 uid="uid://iuyi35iv61kn"]
+
+[ext_resource type="Script" uid="uid://cw8e1e4324k48" path="res://components/computers_view/config_os/persons_view.gd" id="1_wq42r"]
+
+[node name="PersonsView" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wq42r")
+metadata/_tab_index = 4
+
+[node name="HSplitContainer" type="HSplitContainer" parent="."]
+layout_mode = 2
+
+[node name="PersonTree" type="Tree" parent="HSplitContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.25
+
+[node name="PersonDetailContainer" type="VBoxContainer" parent="HSplitContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HSplitContainer/PersonDetailContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HSplitContainer/PersonDetailContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.25
+text = "Email Account"
+
+[node name="MailAccountLineEdit" type="LineEdit" parent="HSplitContainer/PersonDetailContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HSplitContainer/PersonDetailContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HSplitContainer/PersonDetailContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.75
+text = "Password"
+
+[node name="MailPasswordLineEdit" type="LineEdit" parent="HSplitContainer/PersonDetailContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="HSplitContainer/PersonDetailContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.75
+text = "Encrypted Password"
+
+[node name="MailEncPasswordLineEdit" type="LineEdit" parent="HSplitContainer/PersonDetailContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HSeparator" type="HSeparator" parent="HSplitContainer/PersonDetailContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="HSplitContainer/PersonDetailContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HSplitContainer/PersonDetailContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.25
+text = "Bank Account"
+
+[node name="BankAccountLineEdit" type="LineEdit" parent="HSplitContainer/PersonDetailContainer/HBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="HSplitContainer/PersonDetailContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HSplitContainer/PersonDetailContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.75
+text = "Password"
+
+[node name="BankPasswordLineEdit" type="LineEdit" parent="HSplitContainer/PersonDetailContainer/HBoxContainer4"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="HSplitContainer/PersonDetailContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.75
+text = "Encrypted Password"
+
+[node name="BankEncPasswordLineEdit" type="LineEdit" parent="HSplitContainer/PersonDetailContainer/HBoxContainer4"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HSeparator2" type="HSeparator" parent="HSplitContainer/PersonDetailContainer"]
+layout_mode = 2
+
+[node name="OpenNpcViewerButton" type="Button" parent="HSplitContainer/PersonDetailContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Open NPC Viewer"

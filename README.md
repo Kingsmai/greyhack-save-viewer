@@ -77,19 +77,18 @@ Don't hesitate to open issues for any bug reports or feature suggestions! 🚀
 
 ---
 
-## ⚖️ License
+⚖️ License
 
-This project is licensed under the [MIT License](LICENSE).
+- This project’s codebase is licensed under the MIT License.
+- However, some visual assets used in this project (such as in-game screenshots or UI elements) are sourced from the game Grey Hack, and are the intellectual property of the original developers at Loading Home. These assets are included strictly for non-commercial, educational, and illustrative purposes only.
 
----
+> 🚫 Do not redistribute, modify, or reuse these assets outside the context of this tool unless you have permission from the original game developers.
 
-## 📢 Disclaimer
+📢 Disclaimer
 
-> Grey Hack is a property of **Loading Home**.  
-> This tool is a **community-driven project** and is not affiliated with or endorsed by the original developers.  
-> Please use responsibly, and respect the game's community guidelines.
-
----
+> Grey Hack is a property of Loading Home.
+> This tool is a community-driven project and is not affiliated with, endorsed by, or officially supported by the developers of Grey Hack.
+> Please use this tool responsibly and in accordance with the game's terms of service and community guidelines.
 
 ## 🌟 Acknowledgements
 
@@ -111,4 +110,3 @@ This project is licensed under the [MIT License](LICENSE).
 ![GreyHack Save Analyzer - mail](./doc/GHSA-mail.png)
 
 > Hope the developer of GreyHack won't encrypt or change the save method.
-> 

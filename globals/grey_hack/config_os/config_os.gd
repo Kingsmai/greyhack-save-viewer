@@ -17,7 +17,7 @@ var all_ports: Array[Port]
 # TODO: Visualize
 var services: Array
 # TODO: Visualize
-var person: Array
+var person: Array[Person]
 # TODO: Visualize
 var saved_networks: Array[Network]
 
@@ -35,11 +35,13 @@ var network_lan: Dictionary
 # Dev use
 # -------------------------------------
 var raw_data: Dictionary
+var person_raw_data: Array
 
 static func from_dict(data: Dictionary) -> ConfigOS:
 	var config_os = ConfigOS.new()
 	
 	config_os.raw_data = data
+	config_os.person_raw_data = data.get("personas", [])
 	
 	config_os.is_rented = data.get("isRented", false)
 	config_os.saved = data.get("saved", false)
@@ -56,22 +58,23 @@ static func from_dict(data: Dictionary) -> ConfigOS:
 	var ports: Array = Dictionary(data.get("puertos", {})).get("allPorts", [])
 	for port in ports:
 		config_os.all_ports.append(Port.from_dict(port))
-	var services: Array = data.get("servicios", [])
-	for service in services:
+	var servicios: Array = data.get("servicios", [])
+	for service in servicios:
 		config_os.services.append(Service.from_dict(service))
-	# TODO: Deserialize personas
-	config_os.person = data.get("personas", [])
-	var networks: Array = data.get("savedNetworks", [])
-	for network in networks:
+	var personas: Array = data.get("personas", [])
+	for persona in personas:
+		config_os.person.append(Person.from_dict(persona))
+	var savedNetworks: Array = data.get("savedNetworks", [])
+	for network in savedNetworks:
 		config_os.saved_networks.append(Network.from_dict(network))
 	
 	config_os.is_home_network = data.get("isHomeNetwork", false)
 	config_os.router_password = data.get("routerPassword", "")
-	var reverse_shells = data.get("reverseShells", {})
-	for net_id in reverse_shells:
-		config_os.reverse_shells[net_id] = ReverseShell.from_dict(reverse_shells[net_id])
-	var network_lan = data.get("networkLan", {})
-	if network_lan != null:
-		config_os.network_lan = network_lan
+	var reverseShells = data.get("reverseShells", {})
+	for net_id in reverseShells:
+		config_os.reverse_shells[net_id] = ReverseShell.from_dict(reverseShells[net_id])
+	var networkLan = data.get("networkLan", {})
+	if networkLan != null:
+		config_os.network_lan = networkLan
 
 	return config_os

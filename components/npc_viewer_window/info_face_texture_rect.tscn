@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://ltiplwj5eimm"]
+
+[ext_resource type="Texture2D" uid="uid://bplvf8paltgx3" path="res://assets/info_face/Base_face.png" id="1_tfi8w"]
+
+[node name="InfoFaceTextureRect" type="TextureRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_tfi8w")
+expand_mode = 2
+stretch_mode = 4
