@@ -7,7 +7,7 @@ var encrypted_password: String
 static func from_dict(data: Dictionary) -> UserBank:
 	var user_bank = UserBank.new()
 	user_bank.user_name = data.get("userName", "")
-	var pw = data.get("pw", "")
+	var pw = data.get("password", "")
 	if pw != null:
 		user_bank.password = pw
 	var enc_password = data.get("encPassword", "")
