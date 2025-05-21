@@ -57,10 +57,7 @@ func open(npc_info: NpcInfo):
 	# Draw layers
 	for layer in npc_info.info_face.info_face:
 		var l = INFO_FACE_TEXTURE_RECT.instantiate()
-		var part_image = Image.new()
-		part_image.load("res://assets/info_face/" + layer.part_name + ".png")
-		var itex = ImageTexture.create_from_image(part_image)
-		l.texture = itex
+		l.texture = load("res://assets/info_face/" + layer.part_name + ".png")
 		portrait_panel.add_child(l)
 	# TODO: Show NPC Schedule
 	self.show()
