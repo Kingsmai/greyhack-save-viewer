@@ -21,3 +21,8 @@ func _on_file_dropped(files: PackedStringArray) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("refresh"):
 		GreyHack.load_data()
+	if event.is_action_pressed("server_listener"):
+		if ServerListenerWindow.visible:
+			ServerListenerWindow.hide()
+		else:
+			ServerListenerWindow.show()
