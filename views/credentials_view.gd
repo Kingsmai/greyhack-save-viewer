@@ -29,10 +29,11 @@ func _ready() -> void:
 	mail_credential_tree.item_selected.connect(_on_mail_credential_tree_item_selected)
 
 func _on_file_systems_loaded(file_systems: Array[FileSystemRoot]):
+	_clear_all_fields()
+	if file_systems.size() == 0:
+		return
 	var password_list = PasswordsDB.get_password_dictionary()
-	bank_credential_tree.clear()
 	bank_credential_tree_root = bank_credential_tree.create_item()
-	mail_credential_tree.clear()
 	mail_credential_tree_root = mail_credential_tree.create_item()
 	for file_system in file_systems:
 		var home_folder = file_system.find_folder_by_path("home")
@@ -77,3 +78,7 @@ func _on_mail_credential_tree_item_selected() -> void:
 	var current_selected_cell = mail_credential_tree.get_selected().get_text(column_idx)
 	print(current_selected_cell)
 	DisplayServer.clipboard_set(current_selected_cell)
+
+func _clear_all_fields():
+	bank_credential_tree.clear()
+	mail_credential_tree.clear()

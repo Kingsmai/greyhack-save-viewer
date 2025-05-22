@@ -19,17 +19,27 @@ func _ready() -> void:
 	GreyHack.world_info_load.connect(_on_world_info_loaded)
 
 func _on_world_info_loaded(world_data: WorldInfo) -> void:
+	_clear_all_fields()
+	if world_data == null:
+		return
 	rnd_seed_line_edit.text = str(world_data.rnd_seed)
 	clock_label.text = Utils.iso_datetime_to_string(world_data.clock)
 	money_line_edit.text = str(world_data.global_money.money)
 	last_money_line_edit.text = str(world_data.global_money.last_money)
 	last_year_withdraw_line_edit.text = str(world_data.global_money.last_year_withdraw)
-	for child in invoice_item_list.get_children():
-		invoice_item_list.remove_child(child)
-		child.queue_free()
 	for player_id in world_data.invoices:
 		for invoice_key in world_data.invoices[player_id]:
 			var invoice_container = INVOICE_CONTAINER.instantiate()
 			invoice_item_list.add_child(invoice_container)
 			invoice_container.set_invoice_contents(world_data.invoices[player_id][invoice_key])
 			invoice_container.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+
+func _clear_all_fields():
+	rnd_seed_line_edit.text = ""
+	clock_label.text = "2000-01-01 00:00:00"
+	money_line_edit.text = ""
+	last_money_line_edit.text = ""
+	last_year_withdraw_line_edit.text = ""
+	for child in invoice_item_list.get_children():
+		invoice_item_list.remove_child(child)
+		child.queue_free()

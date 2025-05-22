@@ -2,7 +2,7 @@
 # Class Name: MapView
 # Class Description:
 # ------------------------------------------------
-class_name MapView extends MarginContainer
+class_name MapInfoView extends MarginContainer
 
 @onready var map_selector_list: Tree = %MapSelectorList
 
@@ -28,7 +28,9 @@ func _ready() -> void:
 	mission_npc_names_tree.hide_root = true
 
 func _on_map_load(map_data: Array[MapObject]):
-	map_selector_list.clear()
+	_clear_all_fields()
+	if map_data.size() == 0:
+		return
 	var root = map_selector_list.create_item()
 	for map_obj in map_data:
 		var map_entry = root.create_child()
@@ -60,3 +62,16 @@ func _on_map_selector_list_item_selected():
 			npc_name_entry.set_text(0, npc_name)
 			npc_name_entry.set_selectable(0, false)
 	random_seed_line_edit.text = str(selected_map_obj.rnd_seed)
+
+func _clear_all_fields():
+	map_selector_list.clear()
+	generateds_item_list.clear()
+	mission_npc_names_tree.clear()
+	pos_x_line_edit.text = ""
+	pos_y_line_edit.text = ""
+	bssid_line_edit.text = ""
+	essid_line_edit.text = ""
+	ip_line_edit.text = ""
+	web_address_line_edit.text = ""
+	web_type_line_edit.text = ""
+	random_seed_line_edit.text = ""

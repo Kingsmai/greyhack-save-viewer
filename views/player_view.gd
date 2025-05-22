@@ -70,6 +70,9 @@ func _clear_control_childrens(control: Node):
 		child.queue_free()
 
 func _on_player_details_load(player: Player) -> void:
+	_clear_all_fields()
+	if player == null:
+		return
 	player_id_line_edit.text = str(player.player_id)
 	nickname_line_edit.text = player.nickname
 	player_location_x_line_edit.text = str(player.location.x)
@@ -81,14 +84,12 @@ func _on_player_details_load(player: Player) -> void:
 	wallet_id_line_edit.text = player.wallet_id
 	wallet_password_line_edit.text = player.wallet_password
 	login_data_code_edit.text = player.login_data
-	owned_devices_tree.clear()
 	var root = owned_devices_tree.create_item()
 	for device in player.owned_devices:
 		var device_item = root.create_child()
 		device_item.set_text(0, device)
 		device_item.set_metadata(0, device)
 	custom_shop_seed_line_edit.text = str(player.player_shop["customShopSeed"])
-	selling_item_tree.clear()
 	var selling_item_tree_root = selling_item_tree.create_item()
 	for device in player.player_shop["devices"]:
 		var device_item = selling_item_tree_root.create_child()
@@ -151,3 +152,18 @@ func _on_selling_item_tree_item_selected() -> void:
 			detail_key, 
 			item_details[detail_key]
 		)
+
+func _clear_all_fields():
+	player_id_line_edit.text = ""
+	nickname_line_edit.text = ""
+	player_location_x_line_edit.text = ""
+	player_location_y_line_edit.text = ""
+	game_over_count_line_edit.text = ""
+	last_seen_line_edit.text = ""
+	bank_account_line_edit.text = ""
+	email_address_line_edit.text = ""
+	wallet_id_line_edit.text = ""
+	wallet_password_line_edit.text = ""
+	login_data_code_edit.text = ""
+	owned_devices_tree.clear()
+	selling_item_tree.clear()

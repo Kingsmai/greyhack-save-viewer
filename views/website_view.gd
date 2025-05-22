@@ -20,7 +20,9 @@ func _ready() -> void:
 	domain_selector_list.item_selected.connect(_on_domain_selector_item_selected)
 
 func _on_web_pages_loaded(data: Array[WebPage]):
-	domain_selector_list.clear()
+	_clear_all_fields()
+	if data.size() == 0:
+		return
 	var root = domain_selector_list.create_item()
 	for webpage in data:
 		var webpage_entry = root.create_child()
@@ -37,3 +39,12 @@ func _on_domain_selector_item_selected():
 	local_ip_line_edit.text = selected_webpage.local_ip
 	type_net_line_edit.text = WebTypeTranslator.type_translator(selected_webpage.type_net)
 	web_code_edit.text = selected_webpage.web_content
+
+func _clear_all_fields():
+	domain_selector_list.clear()
+	address_line_edit.text = ""
+	public_ip_line_edit.text = ""
+	port_line_edit.text = ""
+	local_ip_line_edit.text = ""
+	type_net_line_edit.text = ""
+	web_code_edit.text = ""

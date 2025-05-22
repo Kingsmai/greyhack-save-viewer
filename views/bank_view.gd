@@ -31,7 +31,9 @@ func _ready() -> void:
 	transactions_tree.set_column_title(4, "Is Success")
 
 func _on_bank_accounts_load(bank_accounts: Array[BankAccount]):
-	bank_account_tree.clear()
+	_clear_all_fields()
+	if bank_accounts.size() == 0:
+		return
 	var root = bank_account_tree.create_item()
 	for bank_account in bank_accounts:
 		var bank_account_entry = root.create_child()
@@ -57,3 +59,13 @@ func _on_bank_account_tree_item_selected() -> void:
 		transaction_entry.set_text(3, transaction.account)
 		transaction_entry.set_text(4, str(transaction.is_success))
 		transaction_entry.set_text_alignment(4, HORIZONTAL_ALIGNMENT_CENTER)
+
+func _clear_all_fields():
+	bank_account_tree.clear()
+	account_line_edit.text = ""
+	password_line_edit.text = ""
+	original_bank_domain_line_edit.text = ""
+	original_bank_ip_line_edit.text = ""
+	money_line_edit.text = ""
+	is_player_check_box.button_pressed = false
+	transactions_tree.clear()

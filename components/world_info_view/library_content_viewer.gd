@@ -16,7 +16,9 @@ func _ready() -> void:
 	library_details_container.memory_zone_selected.connect(_on_memory_zone_selected)
 
 func _on_world_info_loaded(world_info: WorldInfo) -> void:
-	library_tree.clear()
+	_clear_all_fields()
+	if world_info == null:
+		return
 	var root = library_tree.create_item()
 	for lib in world_info.all_libs:
 		var lib_entry = root.create_child()
@@ -43,3 +45,8 @@ func _on_library_tree_item_selected() -> void:
 
 func _on_memory_zone_selected(vulnerability: Vulnerability) -> void:
 	vulnerability_container.load_vulnerability_contents(vulnerability)
+
+func _clear_all_fields():
+	library_tree.clear()
+	library_details_container.reset_library_detail_content()
+	vulnerability_container.reset_vulnerability_contents()

@@ -30,7 +30,9 @@ func _ready() -> void:
 	email_tree.item_selected.connect(_on_email_tree_item_selected)
 
 func _on_mail_accounts_loaded(mail_accounts: Array[MailAccount]) -> void:
-	mail_account_tree.clear()
+	_clear_all_fields()
+	if mail_accounts.size() == 0:
+		return
 	var root = mail_account_tree.create_item()
 	for mail_account in mail_accounts:
 		var mail_account_entry = root.create_child()
@@ -66,3 +68,18 @@ func _on_email_tree_item_selected() -> void:
 		var message_container = MESSAGE_CONTAINER.instantiate()
 		messages_container.add_child(message_container)
 		message_container.set_message(message)
+
+func _clear_all_fields():
+	mail_account_tree.clear()
+	account_line_edit.text = ""
+	password_line_edit.text = ""
+	encrypted_password_line_edit.text = ""
+	spam_filter_line_edit.text = ""
+	player_pc_id_line_edit.text = ""
+	email_tree.clear()
+	other_mail_line_edit.text = ""
+	email_id_line_edit.text = ""
+	mission_id_line_edit.text = ""
+	for child in messages_container.get_children():
+		messages_container.remove_child(child)
+		child.queue_free()

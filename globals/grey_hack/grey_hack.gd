@@ -30,6 +30,10 @@ func _ready() -> void:
 		await get_tree().create_timer(1.0).timeout
 		load_data()
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("clear_all_data"):
+		clear_all_data()
+
 func load_data() -> void:
 	player = PlayerDB.load_player_details()
 	player_details_load.emit(player)
@@ -47,6 +51,25 @@ func load_data() -> void:
 	bank_accounts_load.emit(bank_accounts)
 	mail_accounts = MailAccountsDB.get_mail_accounts()
 	mail_accounts_load.emit(mail_accounts)
+	saved_password = PasswordsDB.get_password_dictionary()
 
 func refresh_password():
 	saved_password = PasswordsDB.get_password_dictionary()
+
+func clear_all_data():
+	player = null
+	player_details_load.emit(player)
+	computers_metadata = []
+	computers_load.emit(computers_metadata)
+	file_systems_load.emit([] as Array[FileSystemRoot])
+	map_data = []
+	map_load.emit(map_data)
+	saved_password = {}
+	web_pages = []
+	web_pages_load.emit(web_pages)
+	world_info = null
+	world_info_load.emit(world_info)
+	bank_accounts = []
+	bank_accounts_load.emit(bank_accounts)
+	mail_accounts = []
+	mail_accounts_load.emit(mail_accounts)

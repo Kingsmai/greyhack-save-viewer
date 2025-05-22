@@ -56,10 +56,12 @@ func _init_tree_columns() -> void:
 	library_detail_tree.set_column_expand(7, false)
 
 func _on_world_info_loaded(world_info: WorldInfo) -> void:
+	_clear_all_fields()
+	if world_info == null:
+		return
 	_populate_library_option(world_info.all_libs)
 
 func _populate_library_option(all_libs: Dictionary) -> void:
-	library_option_button.clear()
 	for lib in all_libs:
 		library_option_button.add_item(lib)
 	library_option_button.item_selected.emit(0)
@@ -241,3 +243,16 @@ func _bake_script() -> void:
 		vuln.helper_hack_result.user[0]
 	]
 	suggest_name_line_edit.text = suggested_name
+
+func _clear_all_fields():
+	library_option_button.clear()
+	library_detail_tree.clear()
+	output_code_edit.text = ""
+	suggest_name_line_edit.text = ""
+	decipher_passwd_check_box.button_pressed = true
+	folder_content_check_box.button_pressed = true
+	password_reset_line_edit.text = ""
+	for btn in computer_hack_button_group.get_buttons():
+		btn.disabled = true
+	for btn in folder_hack_button_group.get_buttons():
+		btn.disabled = true
