@@ -134,3 +134,16 @@ static func deep_copy(original) -> Variant:
 		return copy
 	else:
 		return original
+
+static func decode_base64_gzip(encoded_text: String) -> String:
+	var byte_array = Marshalls.base64_to_raw(encoded_text)
+	# 使用较大的 buffer，避免因估算不足而失败（实际 JSON 字符串远大于压缩内容）
+	var max_size := 1024 * 100  # 100 KB
+	var decompressed = byte_array.decompress(max_size, FileAccess.CompressionMode.COMPRESSION_GZIP)
+	#var estimated_sizes = [1024, 4096, 8192, 16384, 32768, 65536]
+	#for size in estimated_sizes:
+	if decompressed != null:
+		return decompressed.get_string_from_utf8()
+	
+	push_error("GZIP 解压失败：尝试了多个预估大小仍然无效")
+	return ""

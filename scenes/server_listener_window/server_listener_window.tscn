@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://v6t54i7ocik0"]
+
+[ext_resource type="Script" uid="uid://wpb20g7a1hxf" path="res://scenes/server_listener_window/server_listener_window.gd" id="1_hd77h"]
+
+[node name="ServerListenerWindow" type="Window"]
+title = "Server Listener"
+initial_position = 2
+size = Vector2i(500, 500)
+script = ExtResource("1_hd77h")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="StartProxyButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Start Proxy"
+
+[node name="StopProxyButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Stop Proxy"
+
+[node name="LogRichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
