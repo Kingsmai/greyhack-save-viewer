@@ -1,97 +1,128 @@
+## Abandoned
 extends Window
-
-# Server Address
-const TARGET_IP = "85.215.109.98"
-const TARGET_PORT = 21200
-
-# Address Listening Port
-const LISTEN_IP = "0.0.0.0"
-const LISTEN_PORT = 21200
-
-var listener: TCPServer
 
 @onready var start_proxy_button: Button = %StartProxyButton
 @onready var stop_proxy_button: Button = %StopProxyButton
 @onready var log_rich_text_label: RichTextLabel = %LogRichTextLabel
 
-func _ready() -> void:
-	set_process(false)
+const LISTEN_IP = "0.0.0.0"
+const LISTEN_PORT = 12345
+const TARGET_IP = "8.8.8.8"
+const TARGET_PORT = 12345
+
+var listener: TCPServer = TCPServer.new()
+var srv: StreamPeerTCP = StreamPeerTCP.new()
+var client_to_server: ConnectionPeer
+var server_to_client: ConnectionPeer
+var proxy_running := false
+
+func _ready():
+	stop_proxy_button.disabled = true
+	start_proxy_button.pressed.connect(_start_proxy)
+	stop_proxy_button.pressed.connect(_stop_proxy)
+	client_to_server = ConnectionPeer.new()
+	client_to_server.is_outgoing = true
+	client_to_server.data_forwarded.connect(_on_client_to_server_data_forwarded)
+	server_to_client = ConnectionPeer.new()
+	server_to_client.data_forwarded.connect(_on_server_to_client_data_forwarded)
+	self.add_child(client_to_server)
+	self.add_child(server_to_client)
+	self.set_process(false)
 	self.hide()
-	start_proxy_button.pressed.connect(func(): start_proxy())
-	stop_proxy_button.pressed.connect(func(): stop_proxy())
 
 func _notification(what: int) -> void:
-	match what:
-		NOTIFICATION_WM_CLOSE_REQUEST:
-			self.hide()
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		hide()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("server_listener"):
-		if self.visible:
-			self.hide()
-		else:
-			self.show()
+		visible = !visible
 
-func start_proxy():
-	var listener := TCPServer.new()
-	listener.listen(LISTEN_PORT, LISTEN_IP)
-	log_rich_text_label.append_text("Proxy listening on %s:%d\n" % [LISTEN_IP, LISTEN_PORT])
-	set_process(true)
-	self.listener = listener
+func _start_proxy():
+	if proxy_running:
+		_log("⚠️ Listener is already running")
+		return
+	proxy_running = true
+	var listener_err = listener.listen(LISTEN_PORT, LISTEN_IP)
+	if listener_err == OK:
+		_log("✅ Listener is running, listening %s:%d" % [LISTEN_IP, listener.get_local_port()])
+	else:
+		_log("❌ Listener cannot start, aborting. error code: %d, %s" % [listener_err, error_string(listener_err)])
+	var server_err = srv.connect_to_host(TARGET_IP, TARGET_PORT)
+	if server_err == OK:
+		_log("✅ Server is running, proxy to %s:%d" % [srv.get_connected_host(), srv.get_connected_port()])
+		client_to_server.destination = srv
+		server_to_client.source = srv
+	else:
+		_log("❌ Server cannot start, aborting. error code: %d, %s" % [server_err, error_string(server_err)])
+		listener.stop()
+		listener = null
+		_log("🛑 Listener is stopped")
+	start_proxy_button.disabled = true
+	stop_proxy_button.disabled = false
+	self.set_process(true)
 
-func stop_proxy():
+func _stop_proxy():
+	proxy_running = false
 	listener.stop()
-	log_rich_text_label.append_text("Proxy stopped\n")
-	set_process(false)
+	_log("🛑 Listener is stopped")
+	start_proxy_button.disabled = false
+	stop_proxy_button.disabled = true
+	self.set_process(false)
 
-func _process(_delta: float) -> void:
-	if listener.is_connection_available():
-		var client := listener.take_connection()
-		log_rich_text_label.append_text("Accepted connection from client\n")
-		var server = StreamPeerTCP.new()
-		var err := server.connect_to_host(TARGET_IP, TARGET_PORT)
-		if err != OK:
-			log_rich_text_label.append_text("Failed to connect to target server\n")
-			client.disconnect_from_host()
-			return
-		log_rich_text_label.append_text("Connected to target server\n")
-		
-		var pair := ConnectionPair.new()
-		pair.setup(client, server)
-		add_child(pair) # Let it process independently
+func _on_client_to_server_data_forwarded(data: PackedByteArray, plain: String):
+	_log("➡️ Client to server: %s\n%s" % [str(data), plain])
+	pass
 
-# --------------------------
-# 转发连接类（双向）
-class ConnectionPair:
-	extends Node
+func _on_server_to_client_data_forwarded(data: PackedByteArray, plain: String):
+	_log("⬅️ Server to client: %s\n%s" % [str(data), plain])
+	pass
 
-	var client: StreamPeerTCP
-	var server: StreamPeerTCP
-	var client_buffer := PackedByteArray()
-	var server_buffer := PackedByteArray()
+func _process(delta: float) -> void:
+	if listener.is_listening():
+		var cli = listener.take_connection()
+		if cli:
+			_log("Client connected")
+			client_to_server.source = cli
+			client_to_server.set_process(true)
+			server_to_client.destination = cli
+			server_to_client.set_process(true)
 
-	func setup(c: StreamPeerTCP, s: StreamPeerTCP):
-		client = c
-		server = s
-		set_process(true)
+func _log(msg: String):
+	var time = Time.get_time_string_from_system()
+	var entry = "[%s] %s" % [time, msg]
+	print(entry)
+	self.call_deferred("_append_log_text", entry)
 
-	func _process(_delta):
-		if client.get_status() != StreamPeerTCP.STATUS_CONNECTED \
-		or server.get_status() != StreamPeerTCP.STATUS_CONNECTED:
-			print("Connection closed")
-			client.disconnect_from_host()
-			server.disconnect_from_host()
-			queue_free()
-			return
+func _append_log_text(entry: String):
+	log_rich_text_label.append_text(entry + "\n")
 
-		_forward_data(client, server, "CLIENT->SERVER", true)
-		_forward_data(server, client, "SERVER->CLIENT", false)
-
-	func _forward_data(from_peer: StreamPeerTCP, to_peer: StreamPeerTCP, label: String, is_send: bool):
-		while from_peer.get_available_bytes() > 0:
-			var data := from_peer.get_data(from_peer.get_available_bytes())
-			if data.size() == 0:
+class ConnectionPeer extends Node:
+	signal source_disconnected
+	signal destination_disconnected
+	signal data_forwarded(data: PackedByteArray, plain: String)
+	
+	var is_outgoing: bool = false
+	var source: StreamPeerTCP
+	var destination: StreamPeerTCP
+	
+	func _ready() -> void:
+		set_process(false)
+	
+	func _process(delta: float) -> void:
+		if source != null:
+			if source.get_status() == StreamPeerTCP.STATUS_NONE:
+				source_disconnected.emit()
+				source = null
 				return
-			print(data)
-			to_peer.put_data(data)
-			to_peer.flush()
+		if destination != null:
+			if destination.get_status() == StreamPeerTCP.STATUS_NONE:
+				destination_disconnected.emit()
+				destination = null
+				return
+		if source != null:
+			if source.get_available_bytes() > 0:
+				var bytes: Array = source.get_data(source.get_available_bytes())
+				var byte_data: PackedByteArray = bytes[1]
+				data_forwarded.emit(byte_data, byte_data.get_string_from_utf8())
+				destination.put_data(byte_data)
