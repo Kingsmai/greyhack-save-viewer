@@ -15,6 +15,7 @@ const COMPUTER_DETAIL_TAB = preload("res://components/computers_view/computer_de
 var computer_tree_item_dict: Dictionary[String, TreeItem]
 
 func _ready() -> void:
+	computers_tree.allow_reselect = true
 	computers_tree.hide_root = true
 	computers_tree.item_selected.connect(_on_computers_tree_item_selected)
 	GreyHack.computers_load.connect(_on_computers_load)
@@ -96,10 +97,12 @@ func _render_computer_list(computers: Array[Computer]):
 			var ip_tree_item = computer_tree_item_dict[computer.ip]
 			ip_tree_item.set_icon_max_width(0, 16)
 			ip_tree_item.set_icon(0, WebTypeTranslator.type_to_texture(computer.type))
+		computer_tree_item.set_text(0, computer.local_id)
+		computer_tree_item.set_icon_max_width(0, 16)
+		computer_tree_item.set_icon(0, WebTypeTranslator.type_to_texture(computer.type))
 		if computer.is_router:
 			computer_tree_item.set_icon_max_width(0, 16)
 			computer_tree_item.set_icon(0, preload("res://assets/router.svg"))
-		computer_tree_item.set_text(0, computer.local_id)
 		computer_tree_item.set_metadata(0, computer)
 
 func _on_computers_tree_item_selected() -> void:
