@@ -48,7 +48,7 @@ text = "(F2) Exploit Builder"
 [node name="TitleLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Grey Hack Single Player Save Data Viewer"
+text = "Drag your single player save to view"
 horizontal_alignment = 1
 
 [node name="PasswordDecrypterButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
