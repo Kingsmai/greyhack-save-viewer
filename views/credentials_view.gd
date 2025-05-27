@@ -44,27 +44,40 @@ func _on_file_systems_loaded(file_systems: Array[FileSystemRoot]):
 			var mail_credential_file: FileSystemRoot.FileEntry = folder.find_file_by_path("Config/Mail.txt")
 			if bank_credential_file != null:
 				var bank_cred_file_content = FilesDB.get_file_content_by_id(bank_credential_file.id)
-				var account = bank_cred_file_content.split(":")[0]
-				var enc_password = bank_cred_file_content.split(":")[1]
-				var plain_password = password_list.get(enc_password, enc_password)
+				# Fix weird Out of bounds get index '1' (on base: 'PackedStringArray')
+				var bank_cred_file_content_arr = bank_cred_file_content.split(":")
+				var enc_password = ""
+				var plain_password = ""
+				var account = bank_cred_file_content_arr[0]
+				if bank_cred_file_content_arr.size() >= 2:
+					enc_password = bank_cred_file_content_arr[1]
+					plain_password = password_list.get(enc_password, enc_password)
 				_create_bank_entry(account, enc_password, plain_password)
 			if mail_credential_file != null:
 				var mail_cred_file_content = FilesDB.get_file_content_by_id(mail_credential_file.id)
-				var account = mail_cred_file_content.split(":")[0]
-				var enc_password = mail_cred_file_content.split(":")[1]
-				var plain_password = password_list.get(enc_password, enc_password)
+				var mail_cred_file_content_arr = mail_cred_file_content.split(":")
+				var enc_password = ""
+				var plain_password = ""
+				var account = mail_cred_file_content_arr[0]
+				if mail_cred_file_content_arr.size() >= 2:
+					enc_password = mail_cred_file_content_arr[1]
+					plain_password = password_list.get(enc_password, enc_password)
 				_create_mail_entry(account, enc_password, plain_password)
 
 func _create_bank_entry(account: String, enc_password: String, plain_password: String) -> void:
 	var bank_entry = bank_credential_tree_root.create_child()
 	bank_entry.set_text(0, account)
+	bank_entry.set_editable(0, true)
 	bank_entry.set_text(1, plain_password)
+	bank_entry.set_editable(1, true)
 	bank_entry.set_text(2, enc_password)
 
 func _create_mail_entry(account: String, enc_password: String, plain_password: String) -> void:
 	var mail_entry = mail_credential_tree_root.create_child()
 	mail_entry.set_text(0, account)
+	mail_entry.set_editable(0, true)
 	mail_entry.set_text(1, plain_password)
+	mail_entry.set_editable(1, true)
 	mail_entry.set_text(2, enc_password)
 
 func _on_bank_credential_tree_item_selected() -> void:

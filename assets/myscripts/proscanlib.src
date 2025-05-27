@@ -21,16 +21,3 @@ if listMem.len == 0 then exit("Scan completed: No issue detected.")
 print("Scan completed: detected issues in " + listMem.len + " memory zones.")
 
 index = 1
-for itemMem in listMem
-	print("=======================================================")
-	print("Scanning for vulnerabilities at memory zone: " + itemMem)
-	values = metaxploit.scan_address(metaLib, itemMem).split("Unsafe check: ")
-	for unsec in values
-		if unsec == values[0] then continue
-		unsecValue = unsec[unsec.indexOf("<b>") + 3 : unsec.indexOf("</b>")]
-		requirements = unsec[unsec.indexOf("Buffer overflow.") + 17 : unsec.indexOf("\n\n")]
-		print(index + ". " + itemMem + ", " + unsecValue)
-		print(requirements)
-		index = index + 1
-	end for
-end for

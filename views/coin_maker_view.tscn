@@ -1,0 +1,392 @@
+[gd_scene load_steps=0 format=3 uid="uid://dt4nygxklb2ji"]
+
+[node name="Coin Maker" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_tab_index = 11
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+current_tab = 0
+
+[node name="Instructions" type="MarginContainer" parent="VBoxContainer/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/TabContainer/Instructions"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[b]How to make an in-game coin for Grey Hack[/b]
+
+[i]By rocketorbit#3863[/i]
+
+[font_size=18][b]Requirements[/b][/font_size]
+• Make sure that you are above level 2
+• Have more than $150 in your bank account
+
+[font_size=18][b]Steps[/b][/font_size]
+1. Open the in-game browser and search for \"[i]coin[/i]\"
+2. Find a coin creation website and click into it
+3. Set your:
+   - Coin name
+   - Coin user
+   - Coin password
+4. Click [b]\"Create coin\"[/b]
+5. Open [b]client.gs[/b], [b]miner.gs[/b], and [b]ownertool.gs[/b], then:
+   - Set [b]coin_name[/b], [b]coin_user[/b], and [b]coin_pass[/b] to what you set on the website
+6. In [b]ownertool.gs[/b]:
+   - Set [b]special_pass[/b] to any password you like
+7. In [b]miner.gs[/b]:
+   - Set [b]miner_hard_limit[/b] to your desired value
+8. Copy all the code into the game and build/compile
+9. Distribute [b]client.gs[/b] and [b]miner.gs[/b] in-game
+
+[center][b]You are done! 🎉 Good luck![/b][/center]
+"
+
+[node name="Client" type="MarginContainer" parent="VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="CodeEdit" type="CodeEdit" parent="VBoxContainer/TabContainer/Client"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "coin_name = \"\"
+coin_user = \"\"
+coin_pass = \"\"
+blockchain = include_lib(\"/lib/blockchain.so\")
+if not blockchain then blockchain = include_lib(current_path + \"/blockchain.so\")
+if not blockchain then
+    aptclient = include_lib(\"/lib/aptclient.so\")
+    if not aptclient then aptclient = include_lib(current_path + \"/aptclient.so\")
+    if not aptclient then exit(\"Error: blockchain.so and aptclient.so not found\")
+    aptclient.update
+    aptclient.install(\"blockchain.so\")
+    blockchain = include_lib(\"/lib/blockchain.so\")
+    if not blockchain then exit(\"Error: blockchain.so not found\")
+end if
+coin = blockchain.get_coin(coin_name, coin_user, coin_pass)
+
+features = {}
+features[\"balance\"] = {\"name\": \"balance\"}
+features[\"balance\"][\"run\"] = function()
+    subWalletUser = user_input(\"username: \")
+    subWalletPass = user_input(\"password: \", true)
+    subWallet = coin.get_subwallet(subWalletUser)
+    if not typeof(subWallet) == \"subwallet\" then return user_input(\"Error: invalid user or password.\", false, true)
+    if not subWallet.check_password(subWalletPass) then return user_input(\"Error: invalid user or password.\", false, true)
+    return user_input(\"Balance: \" + subWallet.get_balance, false, true)
+end function
+features[\"transaction\"] = {\"name\": \"transaction\"}
+features[\"transaction\"][\"run\"] = function()
+    subWalletUser = user_input(\"Subwallet username: \")
+    subWalletPass = user_input(\"Subwallet password: \", true)
+    reciever = user_input(\"Reciever subwallet username: \")
+    amount = user_input(\"Amount: \").to_int
+    if not typeof(amount) == \"number\" then return user_input(\"Error: invalid amount.\", false, true)
+    subWallet = coin.get_subwallet(subWalletUser)
+    recieverSubWallet = coin.get_subwallet(reciever)
+    if not typeof(subWallet) == \"subwallet\" then return user_input(\"Error: invalid sender/reciever/password.\", false, true)
+    if not subWallet.check_password(subWalletPass) then return user_input(\"Error: invalid sender/reciever/password.\", false, true)
+    if not typeof(recieverSubWallet) == \"subwallet\" then return user_input(\"Error: invalid sender/reciever/password.\", false, true)
+    tryTransaction = coin.transaction(subWalletUser, reciever, amount)
+    if typeof(tryTransaction) == \"string\" then return user_input(tryTransaction, false, true)
+    return user_input(\"Transaction done.\", false, true)
+end function
+features[\"create_subwallet\"] = {\"name\": \"create_subwallet\"}
+features[\"create_subwallet\"][\"run\"] = function()
+    print(\"You are trying to create a subwallet for \" + coin_name + \". You can get your PIN and wallet username from command \"\"wallet\"\".\")
+    subWalletID = user_input(\"Wallet Username: \")
+    subWalletPin = user_input(\"PIN: \", true)
+    subWalletUser = user_input(\"Subwallet user: \")
+    subWalletPass = user_input(\"Subwallet pass: \", true)
+    tryCreateSubWallet = coin.create_subwallet(subWalletID, subWalletPin, subWalletUser, subWalletPass)
+    if tryCreateSubWallet == true then return user_input(\"Subwallet Created!\", false, true)
+    return user_input(\"Error: \" + tryCreateSubWallet, false, true)
+end function
+features[\"delete_subwallet\"] = {\"name\": \"delete_subwallet\"}
+features[\"delete_subwallet\"][\"run\"] = function()
+    print(\"You are about to delete a subwallet for \" + coin_name + \". You will lose everything in it forever!\")
+        subWalletUser = user_input(\"Subwallet user: \")
+        subWalletPass = user_input(\"Subwallet pass: \", true)
+        subWallet = coin.get_subwallet(subWalletUser)
+        if not typeof(subWallet) == \"subwallet\" then return user_input(\"Error: invalid user or password.\", false, true)
+        if not subWallet.check_password(subWalletPass) then return user_input(\"Error: invalid user or password.\", false, true)
+        print(\"You are about to delete subwallet \" + subWalletUser + \" for coin \" + coin_name + \". It has \" + subWallet.get_balance + \" in it. It is binding with \" + subWallet.wallet_username + \" wallet.\")
+        print(\"If you are sure that you want to delete your subwallet, type \"\"Do as I say! Delete my subwallet!\"\" to confirm.\")
+        print(\"THIS WILL DELETE EVERYTHING IN IT FOREVER!\")
+        confirm = user_input(\"> \")
+        if confirm == \"Do as I say! Delete my subwallet!\" then
+            tryDelete = subWallet.delete
+            if typeof(tryDelete) == \"string\" then return user_input(tryDelete, false, true)
+            if tryDelete == true then return user_input(\"Subwallet deleted.\", false, true)
+            if tryDelete == false then return user_input(\"Subwallet not found!\", false, true)
+            return user_input(\"Unknown error.\", false, true)
+        end if
+        return user_input(\"Delete canceled.\", false, true)
+end function
+features[\"emergency_delete_subwallet\"] = {\"name\": \"emergency_delete_subwallet\"}
+features[\"emergency_delete_subwallet\"][\"run\"] = function()
+    print(\"This will require you to enter wallet credentials.\")
+    print(\"This is only for when you forgot your subwallet credentials.\")
+    print(\"If you do not trust this script dont use this feature. (You better not.)\")
+    print(\"Instead, contact coin owner to help you delete your subwallet without wallet credentials.\")
+    print(\"You are about to delete a subwallet for \" + coin_name + \". You will lose everything in it forever!\")
+    walletUser = user_input(\"Wallet user: \")
+    walletPass = user_input(\"Wallet pass: \")
+    tryLoginWallet = blockchain.login_wallet(walletUser, walletPass)
+    if not typeof(tryLoginWallet) == \"wallet\" then return user_input(\"Error: Invalid wallet username/password\", false, true)
+    subWallet = null
+    for trySubWallet in coin.get_subwallets
+        if trySubWallet.wallet_username == walletUser then
+            subWallet = trySubWallet
+            break
+        end if
+    end for
+    if not subWallet then return user_input(\"Error: did not find subwallet binded to this wallet\", false, true)
+    print(\"You are about to delete subwallet \" + subWallet.get_user + \" for coin \" + coin_name + \". It has \" + subWallet.get_balance + \" in it. It is binding with \" + subWallet.wallet_username + \" wallet.\")
+    print(\"If you are sure that you want to delete your subwallet, type \"\"Do as I say! Delete my subwallet!\"\" to confirm.\")
+    print(\"THIS WILL DELETE EVERYTHING IN IT FOREVER!\")
+    confirm = user_input(\"> \")
+    if confirm == \"Do as I say! Delete my subwallet!\" then
+        tryDelete = subWallet.delete
+        if typeof(tryDelete) == \"string\" then return user_input(tryDelete, false, true)
+        if tryDelete == true then return user_input(\"Subwallet deleted.\", false, true)
+        if tryDelete == false then return user_input(\"Subwallet not found!\", false, true)
+        return user_input(\"Unknown error.\", false, true)
+    end if
+    return user_input(\"Delete canceled.\", false, true)
+end function
+
+while true
+    clear_screen
+    featuresName = \"\"
+    for feature in features
+        featuresName = featuresName + \"[\" + feature.value.name + \"] \"
+    end for
+    print(featuresName)
+    select = user_input(\"> \").lower.trim
+    if features.hasIndex(select) then
+        features[select].run
+        continue
+    end if
+    user_input(\"Error: command not found\", false, true)
+end while"
+
+[node name="Miner" type="MarginContainer" parent="VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="CodeEdit" type="CodeEdit" parent="VBoxContainer/TabContainer/Miner"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "coin_name = \"\"
+coin_user = \"\"
+coin_pass = \"\"
+miner_hard_limit = 3000
+blockchain = include_lib(\"/lib/blockchain.so\")
+if not blockchain then blockchain = include_lib(current_path + \"/blockchain.so\")
+if not blockchain then
+    aptclient = include_lib(\"/lib/aptclient.so\")
+    if not aptclient then aptclient = include_lib(current_path + \"/aptclient.so\")
+    if not aptclient then exit(\"Error: blockchain.so and aptclient.so not found\")
+    aptclient.update
+    aptclient.install(\"blockchain.so\")
+    blockchain = include_lib(\"/lib/blockchain.so\")
+    if not blockchain then exit(\"Error: blockchain.so not found\")
+end if
+coin = blockchain.get_coin(coin_name, coin_user, coin_pass)
+while true
+    subWalletUser = user_input(\"input subwallet username: \")
+    subWalletPass = user_input(\"input subwallet password: \", true)
+    subWallet = coin.get_subwallet(subWalletUser)
+    if (typeof(subWallet) != \"subwallet\") or (subWallet.check_password != true) then break
+    print(\"Error: Invalid username or password\")
+end while
+i = 0
+while true
+    clear_screen
+    if blockchain.amount_mined(coin_name) >= miner_hard_limit then exit(\"Mining disabled.\")
+    if i == 0 then print(\"Started mining...\")
+    print(\"Mining for subwallet \" + subWallet.get_user + \" (Which is wallet \" + subWallet.wallet_username + \")\")
+    subWallet.mining
+    i = i + 1
+    print(i + \" mining cycles done.\")
+    print(coin.get_reward + \" \" + coin_name + \" added to subwallet.\")
+    print(\"New balance: \" + subWallet.get_balance)
+end while"
+
+[node name="Owner Tool" type="MarginContainer" parent="VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+
+[node name="CodeEdit" type="CodeEdit" parent="VBoxContainer/TabContainer/Owner Tool"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "coin_name = \"\"
+coin_user = \"\"
+coin_pass = \"\"
+special_pass = \"123456\"
+blockchain = include_lib(\"/lib/blockchain.so\")
+if not blockchain then blockchain = include_lib(current_path + \"/blockchain.so\")
+if not blockchain then
+    aptclient = include_lib(\"/lib/aptclient.so\")
+    if not aptclient then aptclient = include_lib(current_path + \"/aptclient.so\")
+    if not aptclient then exit(\"Error: blockchain.so and aptclient.so not found\")
+    aptclient.update
+    aptclient.install(\"blockchain.so\")
+    blockchain = include_lib(\"/lib/blockchain.so\")
+    if not blockchain then exit(\"Error: blockchain.so not found\")
+end if
+coin = blockchain.get_coin(coin_name, coin_user, coin_pass)
+clear_screen
+print(\"I believe you launched this tool with some basic rules in mind.\")
+print(\"It usually boils down to these three things:\")
+print
+print(\"   #1) Respect the privacy of others.\")
+print(\"   #2) Think before you type.\")
+print(\"   #3) With great power comes great responsibility.\")
+print
+trySpecialPass = user_input(\"Password: \", true)
+if not trySpecialPass == special_pass then exit
+subWallets = coin.get_subwallets
+features = {}
+features[\"subwallets_count\"] = {\"name\": \"subwallets_count\"}
+features[\"subwallets_count\"][\"run\"] = function()
+    return user_input(\"There are \" + subWallets.len + \" subwallets.\", false, true)
+end function
+features[\"subwallets_info\"] = {\"name\": \"subwallets_info\"}
+features[\"subwallets_info\"][\"run\"] = function()
+    for subWallet in subWallets
+        print(\"Subwallet name: \" + subWallet.get_user + \" Subwallet balance: \" + subWallet.get_balance)
+        print(\"Subwallet info: \" + subWallet.get_info + \" Binded to wallet: \" + subWallet.wallet_username)
+        print
+    end for
+    user_input(\"There are \" + subWallets.len + \" subwallets.\", false, true)
+end function
+features[\"last_transaction\"] = {\"name\": \"last_transaction\"}
+features[\"last_transaction\"][\"run\"] = function()
+    subWalletName = user_input(\"Subwallet name: \")
+    subWallet = coin.get_subwallet(subWalletName)
+    if not typeof(subWallet) == \"subwallet\" then return user_input(\"Subwallet not found.\", false, true)
+    lastTransaction = subWallet.last_transaction
+    if lastTransaction.len < 4 then return user_input(\"No transaction found.\", false, true)
+    if lastTransaction[2] == 0 then
+        return user_input(\"From \" + lastTransaction[0] + \" to \" + subWallet.get_user + \". Amount: \" + lastTransaction[1] + \" Date: \" + lastTransaction[3], false, true)
+    else
+        return user_input(\"From \" + subWallet.get_user + \" to \" + lastTransaction[0] + \". Amount: \" + lastTransaction[1] + \" Date: \" + lastTransaction[3], false, true)
+    end if
+end function
+features[\"transaction\"] = {\"name\": \"transaction\"}
+features[\"transaction\"][\"run\"] = function()
+    senderName = user_input(\"From subwallet: \")
+    senderSubwallet = coin.get_subwallet(senderName)
+    if not typeof(senderSubwallet) == \"subwallet\" then return user_input(\"Sender subwallet not found.\", false, true)
+    recieverName = user_input(\"To subwallet: \")
+    recieverSubwallet = coin.get_subwallet(recieverName)
+    if not typeof(recieverSubwallet) == \"subwallet\" then return user_input(\"Reciever subwallet not found.\", false, true)
+    amount = user_input(\"Amount: \").to_int
+    if not typeof(amount) == \"number\" then return user_input(\"Invalid amount.\", false, true)
+    tryTransaction = coin.transaction(senderName, recieverName, amount)
+    if typeof(tryTransaction) == \"string\" then return user_input(tryTransaction, false, true)
+    return user_input(\"Transaction done.\", false, true)
+end function
+features[\"set_address\"] = {\"name\": \"set_address\"}
+features[\"set_address\"][\"run\"] = function()
+    address = user_input(\"Address: \")
+    trySetAddress = coin.set_address(address)
+    if trySetAddress == 1 then return user_input(\"Address set.\", false, true)
+    return user_input(trySetAddress, false, true)
+end function
+features[\"set_reward\"] = {\"name\": \"set_reward\"}
+features[\"set_reward\"][\"run\"] = function()
+    reward = user_input(\"Reward: \")
+    trySetReward = coin.set_reward(reward)
+    if trySetReward == 1 then return user_input(\"Reward set.\", false, true)
+    return user_input(trySetReward, false, true)
+end function
+features[\"set_cycle_mining\"] = {\"name\": \"set_cycle_mining\"}
+features[\"set_cycle_mining\"][\"run\"] = function()
+    cycle_mining = user_input(\"Cycle mining: \")
+    trySetCycleMining = coin.set_cycle_mining(cycle_mining)
+    if trySetCycleMining == 1 then return user_input(\"Cycle mining set.\", false, true)
+    return user_input(trySetCycleMining, false, true)
+end function
+features[\"coin_info\"] = {\"name\": \"coin_info\"}
+features[\"coin_info\"][\"run\"] = function()
+    print(\"Coin name: \" + coin_name)
+    print(\"Address: \" + coin.get_address + \" Mined coins: \" + coin.get_mined_coins)
+    user_input(\"Reward: \" + coin.get_reward + \" Cycle mining: \" + coin.get_cycle_mining, false, true)
+end function
+features[\"delete_subwallet\"] = {\"name\": \"delete_subwallet\"}
+features[\"delete_subwallet\"][\"run\"] = function()
+    print(\"You are about to delete a subwallet. This action delete everything in it.\")
+    subWalletName = user_input(\"Subwallet name: \")
+    subWallet = coin.get_subwallet(subWalletName)
+    if not typeof(subWallet) == \"subwallet\" then return user_input(\"Subwallet not found.\", false, true)
+    print(\"You are about to delete subwallet \" + subWalletName + \" for coin \" + coin_name + \". It has \" + subWallet.get_balance + \" in it. It is binding with \" + subWallet.wallet_username + \" wallet.\")
+    print(\"If you are sure that you want to delete this subwallet, type \"\"Do as I say! Delete this subwallet!\"\" to confirm.\")
+    print(\"THIS WILL DELETE EVERYTHING IN IT FOREVER!\")
+    confirm = user_input(\"> \")
+    if confirm == \"Do as I say! Delete this subwallet!\" then
+        tryDelete = subWallet.delete
+        if typeof(tryDelete) == \"string\" then return user_input(tryDelete, false, true)
+        if tryDelete == true then return user_input(\"Subwallet deleted.\", false, true)
+        if tryDelete == false then return user_input(\"Subwallet not found!\", false, true)
+        return user_input(\"Unknown error.\", false, true)
+    end if
+    return user_input(\"Delete canceled.\", false, true)
+end function
+features[\"delete_coin\"] = {\"name\": \"delete_coin\"}
+features[\"delete_coin\"][\"run\"] = function()
+    print(\"You are about to delete your coin. This action delete everything in it.\")
+    tryCoinPass = user_input(\"Coin password: \")
+    if not tryCoinPass == coin_pass then return user_input(\"Password invalid.\", false, true)
+    print(\"You are about to delete coin \" + coin_name + \". This action delete everything in it.\")
+    print(\"If you are sure that you want to delete your coin, type \"\"Do as I say! Delete my coin!\"\" to confirm.\")
+    confirm = user_input(\"> \")
+    if confirm == \"Do as I say! Delete my coin!\" then
+        tryDelete = blockchain.delete_coin(coin_name, coin_user, coin_pass)
+        if typeof(tryDelete) == \"string\" then return user_input(tryDelete, false, true)
+        if tryDelete == true then return user_input(\"Coin deleted. You can do Ctrl + C now.\")
+        return user_input(tryDelete, false, true)
+    end if
+    return user_input(\"Delete canceled.\", false, true)
+end function
+
+while true
+    clear_screen
+    featuresName = \"\"
+    for feature in features
+        featuresName = featuresName + \"[\" + feature.value.name + \"] \"
+    end for
+    print(featuresName)
+    select = user_input(\"> \").lower.trim
+    if features.hasIndex(select) then
+        features[select].run
+        continue
+    end if
+    user_input(\"Error: command not found\", false, true)
+end while"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "This tutorial was made by @Rocketorbit"
+
+[node name="LinkButton" type="LinkButton" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "How to make a ingame coin for Grey Hack"
+uri = "https://github.com/rocketorbit/How-to-make-a-coin-for-Grey-Hack"

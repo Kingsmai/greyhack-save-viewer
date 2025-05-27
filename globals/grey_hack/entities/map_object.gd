@@ -14,8 +14,8 @@ var ip_address: String
 ## TODO: Convert to readable string
 var access_type: int
 
-## TODO: No data yet
-var mission: String
+## TODO: No data yet, update 20250526 Got data!
+var mission: Dictionary
 
 var lib_versions: MapObjectLibVersion
 ## Generated child targets[br]
@@ -57,7 +57,11 @@ static func parse_map_object_from_json(json: Dictionary) -> MapObject:
 	map_object.web_address = json["WebAddress"]
 	map_object.web_type = json["TipoRed"]
 	map_object.rnd_seed = json["Seed"]
-	map_object.mission = json["Mission"]
+	if typeof(json["Mission"]) == TYPE_STRING:
+		map_object.mission = {}
+	else:
+		print(json["Mission"])
+		map_object.mission = json["Mission"]
 	map_object.ip_address = json["IpAddress"]
 	map_object.access_type = json["AccessType"]
 	map_object.lib_versions = MapObjectLibVersion.new()

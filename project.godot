@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="GreyHack Save Analyzer"
+config/version="2.2.0"
 run/main_scene="uid://cp1ioem18ac4l"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
@@ -30,6 +31,7 @@ ExploitBuilderWindow="*res://scenes/exploit_builder_window/exploit_builder_windo
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/size/mode=2
 
 [dotnet]
 

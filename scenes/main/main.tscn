@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cp1ioem18ac4l"]
+[gd_scene load_steps=15 format=3 uid="uid://cp1ioem18ac4l"]
 
 [ext_resource type="Script" uid="uid://bbnhgcd0ot2yv" path="res://scenes/main/main.gd" id="1_hyk8p"]
 [ext_resource type="PackedScene" uid="uid://busrn3xwht5qd" path="res://views/world_info_view.tscn" id="2_hujxm"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://ckgxqwl2oecmo" path="res://views/mail_view.tscn" id="9_a8run"]
 [ext_resource type="PackedScene" uid="uid://8at314jb8jkf" path="res://views/script_chef_view.tscn" id="10_ouso4"]
 [ext_resource type="PackedScene" uid="uid://nat0nt4123d4" path="res://views/hack_tools_view.tscn" id="11_blune"]
+[ext_resource type="PackedScene" uid="uid://dt4nygxklb2ji" path="res://views/coin_maker_view.tscn" id="13_7smn1"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -117,6 +118,10 @@ metadata/_tab_index = 9
 visible = false
 layout_mode = 2
 metadata/_tab_index = 10
+
+[node name="Coin Maker" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer" instance=ExtResource("13_7smn1")]
+visible = false
+layout_mode = 2
 
 [node name="DecipherWindow" parent="." instance=ExtResource("5_6q06x")]
 unique_name_in_owner = true
