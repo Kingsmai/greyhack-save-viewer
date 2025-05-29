@@ -12,6 +12,7 @@ class_name ScriptChefView extends MarginContainer
 @onready var folder_content_check_box: CheckBox = %FolderContentCheckBox
 
 var computer_hack_button_group: ButtonGroup
+@onready var specified_user_check_box: CheckBox = %SpecifiedUserCheckBox
 var folder_hack_button_group: ButtonGroup
 @onready var password_reset_line_edit: LineEdit = %PasswordResetLineEdit
 
@@ -191,6 +192,7 @@ func _set_user_controls_states(helper_hack_result: HelperHackResult) -> void:
 		btn.disabled = mode != HackResultType.Type.RANDOM_FOLDER
 	for btn in computer_hack_button_group.get_buttons():
 		btn.disabled = mode != HackResultType.Type.COMPUTER
+	specified_user_check_box.disabled = mode != HackResultType.Type.COMPUTER
 	password_reset_line_edit.editable = mode == HackResultType.Type.CHANGE_PASS
 
 func _on_library_detail_tree_item_selected() -> void:
@@ -219,10 +221,21 @@ func _bake_script() -> void:
 	var vuln: Vulnerability = current_selected.get_metadata(2)
 	var selected_computer_hack = computer_hack_button_group.get_pressed_button().get_index() - 1
 	var selected_folder_hack = folder_hack_button_group.get_pressed_button().get_index() - 1
+	if vuln.helper_hack_result.hack_result == HackResultType.Type.RANDOM_FOLDER:
+		match selected_folder_hack:
+			0: vuln.helper_hack_result.part_selected = HelperHackResult.PartSelected.FOLDER_CONTENTS
+			1: vuln.helper_hack_result.part_selected = HelperHackResult.PartSelected.FOLDER_ETC_PASSWD
+			2: vuln.helper_hack_result.part_selected = HelperHackResult.PartSelected.FOLDER_MAIL_PASSWD
+	if vuln.helper_hack_result.hack_result == HackResultType.Type.COMPUTER:
+		match selected_computer_hack:
+			0: vuln.helper_hack_result.part_selected = HelperHackResult.PartSelected.COMPUTER_DECIPHER_PASSWD
+			1: vuln.helper_hack_result.part_selected = HelperHackResult.PartSelected.COMPUTER_DECIPHER_BANK
+			2: vuln.helper_hack_result.part_selected = HelperHackResult.PartSelected.COMPUTER_DECIPHER_MAIL
+		vuln.helper_hack_result.is_specified_user = specified_user_check_box.button_pressed
 	var new_password = password_reset_line_edit.text
-	var source_code = ExploitBuilder.build_exploit(lib, zone, vuln, selected_computer_hack, selected_folder_hack, new_password)
+	var source_code = ExploitBuilder.build_exploit(lib, zone, vuln, new_password)
 	output_code_edit.text = source_code
-	var suggested_name = ExploitBuilder.get_suggested_script_name(vuln, lib, selected_folder_hack, selected_computer_hack)
+	var suggested_name = ExploitBuilder.get_suggested_script_name(vuln, lib)
 	suggest_name_line_edit.text = suggested_name
 
 func _clear_all_fields():
@@ -235,5 +248,6 @@ func _clear_all_fields():
 	password_reset_line_edit.text = ""
 	for btn in computer_hack_button_group.get_buttons():
 		btn.disabled = true
+	specified_user_check_box.disabled = true
 	for btn in folder_hack_button_group.get_buttons():
 		btn.disabled = true

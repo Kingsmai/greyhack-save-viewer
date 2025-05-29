@@ -70,6 +70,11 @@ layout_mode = 2
 button_group = ExtResource("2_a71l8")
 text = "Decipher Mail"
 
+[node name="SpecifiedUserCheckBox" type="CheckBox" parent="VBoxContainer/VSplitContainer/HBoxContainer2/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Specified User?"
+
 [node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/VSplitContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
