@@ -44,8 +44,8 @@ const TAB_HOVER_BG = "res://themes/ui-pack/tab_container/button_square_gloss.png
 const TAB_DISABLED_BG = "res://themes/ui-pack/tab_container/button_square_flat_grey.png"
 
 const TREE_PANEL_BG = "res://themes/ui-pack/tree/button_square_line.png"
-const TREE_ICON_EXPAND = "res://themes/ui-pack/tree/icon_arrow_down_dark.png"
-const TREE_ICON_COLLAPSE = "res://themes/ui-pack/tree/icon_arrow_up_dark.png"
+const TREE_ICON_EXPAND = "res://themes/ui-pack/tree/icon_arrow_down_dark.svg"
+const TREE_ICON_COLLAPSE = "res://themes/ui-pack/tree/icon_arrow_up_dark.svg"
 const TREE_SELECTED_BG = "res://themes/ui-pack/tree/button_square_flat.png"
 const TREE_HOVER_BG = "res://themes/ui-pack/tree/button_square_gloss.png"
 const TREE_CHECKBOX_UNCHECKED_DISABLED = "res://themes/ui-pack/tree/check_square_grey.png"
