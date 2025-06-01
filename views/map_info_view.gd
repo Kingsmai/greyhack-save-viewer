@@ -36,7 +36,7 @@ func _on_map_load(map_data: Array[MapObject]):
 		var map_entry = root.create_child()
 		map_entry.set_text(0, map_obj.ip_address)
 		map_entry.set_icon(0, WebTypeTranslator.type_to_texture(map_obj.web_type))
-		map_entry.set_icon_max_width(0, 16)
+		# map_entry.set_icon_max_width(0, 16)
 
 func _on_map_selector_list_item_selected():
 	var selected_idx = map_selector_list.get_selected().get_index()

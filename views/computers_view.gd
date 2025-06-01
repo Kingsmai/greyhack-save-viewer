@@ -21,6 +21,12 @@ func _ready() -> void:
 	GreyHack.computers_load.connect(_on_computers_load)
 	group_by_type_check_button.pressed.connect(func(): render_computer_list(GreyHack.computers_metadata))
 	sort_by_ip_check_button.pressed.connect(func(): render_computer_list(GreyHack.computers_metadata))
+	computer_tab_container.get_tab_bar().tab_close_display_policy = TabBar.CLOSE_BUTTON_SHOW_ALWAYS
+	computer_tab_container.get_tab_bar().tab_close_pressed.connect(func(idx: int):
+		var node = computer_tab_container.get_child(idx)
+		computer_tab_container.remove_child(node)
+		node.queue_free()
+	)
 
 func _on_computers_load(computers: Array[Computer]):
 	# Clear all opened computer tabs
@@ -95,13 +101,13 @@ func _render_computer_list(computers: Array[Computer]):
 		var computer_tree_item = computer_tree_item_dict[computer.ip].create_child()
 		if computer.type != WebTypeTranslator.Type.Unknown:
 			var ip_tree_item = computer_tree_item_dict[computer.ip]
-			ip_tree_item.set_icon_max_width(0, 16)
+			# ip_tree_item.set_icon_max_width(0, 16)
 			ip_tree_item.set_icon(0, WebTypeTranslator.type_to_texture(computer.type))
 		computer_tree_item.set_text(0, computer.local_id)
-		computer_tree_item.set_icon_max_width(0, 16)
+		# computer_tree_item.set_icon_max_width(0, 16)
 		computer_tree_item.set_icon(0, WebTypeTranslator.type_to_texture(computer.type))
 		if computer.is_router:
-			computer_tree_item.set_icon_max_width(0, 16)
+			# computer_tree_item.set_icon_max_width(0, 16)
 			computer_tree_item.set_icon(0, preload("res://assets/router.svg"))
 		computer_tree_item.set_metadata(0, computer)
 

@@ -27,7 +27,7 @@ func _on_web_pages_loaded(data: Array[WebPage]):
 	for webpage in data:
 		var webpage_entry = root.create_child()
 		webpage_entry.set_text(0, webpage.address)
-		webpage_entry.set_icon_max_width(0, 16)
+		# webpage_entry.set_icon_max_width(0, 16)
 		webpage_entry.set_icon(0, WebTypeTranslator.type_to_texture(webpage.type_net))
 
 func _on_domain_selector_item_selected():

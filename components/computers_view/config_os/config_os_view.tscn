@@ -13,76 +13,73 @@ grow_vertical = 2
 script = ExtResource("1_bme1n")
 metadata/_tab_index = 3
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-layout_mode = 2
-
-[node name="TabContainer" type="TabContainer" parent="PanelContainer"]
+[node name="TabContainer" type="TabContainer" parent="."]
 layout_mode = 2
 size_flags_vertical = 3
 current_tab = 1
 
-[node name="Raw" type="MarginContainer" parent="PanelContainer/TabContainer"]
+[node name="Raw" type="MarginContainer" parent="TabContainer"]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/TabContainer/Raw"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Raw"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/TabContainer/Raw/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Raw/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/TabContainer/Raw/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="TabContainer/Raw/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Raw View"
 
-[node name="LinkButton" type="LinkButton" parent="PanelContainer/TabContainer/Raw/VBoxContainer/HBoxContainer"]
+[node name="LinkButton" type="LinkButton" parent="TabContainer/Raw/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "Contribute a viewer here!"
 uri = "https://github.com/Kingsmai/greyhack-save-viewer"
 
-[node name="ConfigOsCodeEdit" type="CodeEdit" parent="PanelContainer/TabContainer/Raw/VBoxContainer"]
+[node name="ConfigOsCodeEdit" type="CodeEdit" parent="TabContainer/Raw/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 minimap_draw = true
 gutters_draw_line_numbers = true
 
-[node name="Metadata" parent="PanelContainer/TabContainer" instance=ExtResource("2_65hxi")]
+[node name="Metadata" parent="TabContainer" instance=ExtResource("2_65hxi")]
 unique_name_in_owner = true
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="LanRawView" type="MarginContainer" parent="PanelContainer/TabContainer"]
+[node name="LanRawView" type="MarginContainer" parent="TabContainer"]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/TabContainer/LanRawView"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/LanRawView"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/TabContainer/LanRawView/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/LanRawView/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/TabContainer/LanRawView/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="TabContainer/LanRawView/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Network LAN Raw View"
 
-[node name="LinkButton" type="LinkButton" parent="PanelContainer/TabContainer/LanRawView/VBoxContainer/HBoxContainer"]
+[node name="LinkButton" type="LinkButton" parent="TabContainer/LanRawView/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "Contribute a viewer here!"
 uri = "https://github.com/Kingsmai/greyhack-save-viewer"
 
-[node name="NetworkLanCodeEdit" type="CodeEdit" parent="PanelContainer/TabContainer/LanRawView/VBoxContainer"]
+[node name="NetworkLanCodeEdit" type="CodeEdit" parent="TabContainer/LanRawView/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 minimap_draw = true
 gutters_draw_line_numbers = true
 
-[node name="Persons" parent="PanelContainer/TabContainer" instance=ExtResource("3_bfwdq")]
+[node name="Persons" parent="TabContainer" instance=ExtResource("3_bfwdq")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2

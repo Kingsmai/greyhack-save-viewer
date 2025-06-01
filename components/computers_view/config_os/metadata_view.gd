@@ -48,8 +48,10 @@ func set_config_os_metadata(data: ConfigOS) -> void:
 	for port in data.all_ports:
 		var port_node = port_root.create_child()
 		var bg_color = (Color.DARK_GREEN if port.is_visible else Color.DARK_RED).darkened(0.5)
+		var font_color = Color.WHITE
 		for i in range(4):
 			port_node.set_custom_bg_color(i, bg_color)
+			port_node.set_custom_color(i, font_color)
 			port_node.set_text_alignment(i, HORIZONTAL_ALIGNMENT_CENTER)
 		port_node.set_text(0, str(port.external_port))
 		port_node.set_text(1, str(port.internal_port))

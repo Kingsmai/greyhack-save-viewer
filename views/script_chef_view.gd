@@ -131,15 +131,15 @@ func _add_exploit_entry(parent: TreeItem, lib: Lib, zone: MemoryZone, vuln: Vuln
 
 func _set_remote_local_colors(item: TreeItem, vuln: Vulnerability) -> void:
 	if vuln.is_remote:
-		item.set_custom_color(0, Color.CYAN)
-		item.set_custom_color(1, Color.CYAN)
+		item.set_custom_color(0, Color(0.0, 0.5, 0.5, 1.0))
+		item.set_custom_color(1, Color(0.0, 0.5, 0.5, 1.0))
 	else:
-		item.set_custom_color(0, Color.YELLOW)
-		item.set_custom_color(1, Color.YELLOW)
+		item.set_custom_color(0, Color(0.5, 0.5, 0.0, 1.0))
+		item.set_custom_color(1, Color(0.5, 0.5, 0.0, 1.0))
 
 func _set_required_action_colors(item: TreeItem, actions: Array) -> void:
-	var highlight = Color.CYAN
-	var dim = Color.WHITE
+	var highlight = Color.DARK_GREEN
+	var dim = Color.BLACK
 	dim.a = 0.2
 	item.set_custom_color(4, highlight if HackRequiredType.Type.PATH_EXIST in actions else dim)
 	item.set_custom_color(5, highlight if HackRequiredType.Type.NUMBER_USERS_REGISTER in actions else dim)
@@ -169,20 +169,20 @@ func _get_required_library(actions: Array, lib: String, ver: String) -> String:
 
 func _get_result_color(result_type: int) -> Color:
 	match result_type:
-		HackResultType.Type.SHELL: return Color.GREEN
-		HackResultType.Type.RANDOM_FOLDER: return Color.YELLOW_GREEN
-		HackResultType.Type.CHANGE_PASS: return Color.YELLOW
-		HackResultType.Type.COMPUTER: return Color.ORANGE
-		HackResultType.Type.FIREWALL_DISABLE: return Color.ORANGE_RED
-		HackResultType.Type.OVERRIDE_SETTINGS: return Color.RED
-		HackResultType.Type.TRAFFIC_LIGHT_CONTROL: return Color.CRIMSON
+		HackResultType.Type.SHELL: return Color.GREEN.darkened(0.25)
+		HackResultType.Type.RANDOM_FOLDER: return Color.YELLOW_GREEN.darkened(0.25)
+		HackResultType.Type.CHANGE_PASS: return Color.YELLOW.darkened(0.25)
+		HackResultType.Type.COMPUTER: return Color.ORANGE.darkened(0.25)
+		HackResultType.Type.FIREWALL_DISABLE: return Color.ORANGE_RED.darkened(0.25)
+		HackResultType.Type.OVERRIDE_SETTINGS: return Color.RED.darkened(0.25)
+		HackResultType.Type.TRAFFIC_LIGHT_CONTROL: return Color.CRIMSON.darkened(0.25)
 		_: return Color.WHITE
 
 func _get_user_color(user: String) -> Color:
 	match user:
-		"root": return Color.GREEN
-		"normal_user": return Color.YELLOW
-		"guest": return Color.RED
+		"root": return Color.GREEN.darkened(0.25)
+		"normal_user": return Color.YELLOW.darkened(0.25)
+		"guest": return Color.RED.darkened(0.25)
 		_: return Color.WHITE
 
 func _set_user_controls_states(helper_hack_result: HelperHackResult) -> void:

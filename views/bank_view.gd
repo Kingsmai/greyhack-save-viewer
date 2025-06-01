@@ -29,6 +29,7 @@ func _ready() -> void:
 	transactions_tree.set_column_title(2, "Amount")
 	transactions_tree.set_column_title(3, "Account")
 	transactions_tree.set_column_title(4, "Is Success")
+	transactions_tree.select_mode = Tree.SELECT_ROW
 
 func _on_bank_accounts_load(bank_accounts: Array[BankAccount]):
 	_clear_all_fields()

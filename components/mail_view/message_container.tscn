@@ -3,7 +3,9 @@
 [ext_resource type="Script" uid="uid://dl5ii0c7sjjqe" path="res://components/mail_view/message_container.gd" id="1_rthfl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_546f7"]
+font_color = Color(0, 0, 0, 1)
 outline_size = 2
+outline_color = Color(0.4, 0.4, 0.4, 1)
 
 [node name="MessageContainer" type="PanelContainer"]
 script = ExtResource("1_rthfl")
